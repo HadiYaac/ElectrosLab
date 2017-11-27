@@ -1,7 +1,133 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="yLb-ev-pZr">
+            <objects>
+                <viewController storyboardIdentifier="LoginController" id="3hQ-tV-tgV" customClass="LoginController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8fx-U7-EVb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-X2-xLD" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
+                                <rect key="frame" x="20" y="50" width="335" height="31"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79u-sh-p2k" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
+                                <rect key="frame" x="20" y="111" width="335" height="31"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1Q-am-b7F">
+                                <rect key="frame" x="87" y="219" width="201" height="50"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DPX-Rb-vh8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginAction:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="Vik-j7-IzG"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-MF-T1T">
+                                <rect key="frame" x="16" y="605" width="343" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbv-Rj-itH">
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="42"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="he6-JQ-sU8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4J-5N-0KZ">
+                                        <rect key="frame" x="176.5" y="0.0" width="166.5" height="42"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Guest">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="guestTapped:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="4mM-GV-Wgx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="mIV-0t-47g"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="I1Q-am-b7F" secondAttribute="trailing" constant="87" id="2Kf-Ku-d1b"/>
+                            <constraint firstItem="79u-sh-p2k" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3TY-IF-WUO"/>
+                            <constraint firstItem="Qqv-X2-xLD" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3kr-gG-2v0"/>
+                            <constraint firstItem="I1Q-am-b7F" firstAttribute="top" secondItem="79u-sh-p2k" secondAttribute="bottom" constant="77" id="D4W-M3-m4r"/>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="bottom" secondItem="bVK-MF-T1T" secondAttribute="bottom" constant="20" id="DFd-Se-SqE"/>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="79u-sh-p2k" secondAttribute="trailing" constant="20" id="JKn-66-5MB"/>
+                            <constraint firstItem="Qqv-X2-xLD" firstAttribute="top" secondItem="VmW-EQ-XVj" secondAttribute="top" constant="30" id="L3X-Nh-e0Z"/>
+                            <constraint firstItem="79u-sh-p2k" firstAttribute="top" secondItem="Qqv-X2-xLD" secondAttribute="bottom" constant="30" id="fUt-RF-RoE"/>
+                            <constraint firstItem="bVK-MF-T1T" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="16" id="mZf-XV-jKQ"/>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="Qqv-X2-xLD" secondAttribute="trailing" constant="20" id="oMj-Jm-roe"/>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="bVK-MF-T1T" secondAttribute="trailing" constant="16" id="yF4-b0-lCR"/>
+                            <constraint firstItem="I1Q-am-b7F" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="87" id="zE0-bI-6A9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VmW-EQ-XVj"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTxtfield" destination="79u-sh-p2k" id="EMZ-za-i3g"/>
+                        <outlet property="phoneNumberTxtfield" destination="Qqv-X2-xLD" id="yH3-ap-HQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upY-a3-ilc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="152.47376311844079"/>
+        </scene>
+        <!--Signup Controller-->
+        <scene sceneID="0Hi-ep-Mdd">
+            <objects>
+                <viewController storyboardIdentifier="SignupController" id="clq-u9-Pub" customClass="SignupController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mk0-J0-Tzp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SHb-73-RTa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-Q7-mZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="150"/>
+        </scene>
+    </scenes>
 </document>

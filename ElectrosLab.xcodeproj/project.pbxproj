@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D2E52AC928583D42BED262B1 /* Pods_ElectrosLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */; };
+		D724C21B1FCC8D9C009FBEE1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724C21A1FCC8D9C009FBEE1 /* LoginView.swift */; };
+		D724C21D1FCC8DB5009FBEE1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724C21C1FCC8DB5009FBEE1 /* LoginController.swift */; };
+		D724C2201FCC8E73009FBEE1 /* HJFloatingTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724C21F1FCC8E73009FBEE1 /* HJFloatingTextfield.swift */; };
+		D724C2221FCC9228009FBEE1 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724C2211FCC9228009FBEE1 /* SignupView.swift */; };
+		D724C2241FCC9240009FBEE1 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D724C2231FCC9240009FBEE1 /* SignupController.swift */; };
 		D737317C1FCC78B5002BBA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737317B1FCC78B5002BBA9C /* AppDelegate.swift */; };
 		D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737317D1FCC78B5002BBA9C /* ViewController.swift */; };
 		D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737317F1FCC78B5002BBA9C /* Main.storyboard */; };
@@ -24,11 +29,26 @@
 		D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A21FCC7EE5002BBA9C /* AppContent.swift */; };
 		D73731A51FCC7F84002BBA9C /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A41FCC7F84002BBA9C /* Formatters.swift */; };
 		D73731A81FCC807E002BBA9C /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A71FCC807E002BBA9C /* Validators.swift */; };
+		D73731AA1FCC812C002BBA9C /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A91FCC812C002BBA9C /* AppDelegateViewModel.swift */; };
+		D73731AC1FCC82DA002BBA9C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731AB1FCC82DA002BBA9C /* ApplicationCoordinator.swift */; };
+		D73731AF1FCC830E002BBA9C /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731AE1FCC830E002BBA9C /* BaseCoordinator.swift */; };
+		D73731B21FCC8372002BBA9C /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731B11FCC8372002BBA9C /* CoordinatorFactory.swift */; };
+		D73731B41FCC84E7002BBA9C /* CoordinatorFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731B31FCC84E7002BBA9C /* CoordinatorFactoryImp.swift */; };
+		D73731B81FCC8583002BBA9C /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731B71FCC8583002BBA9C /* AuthCoordinatorOutput.swift */; };
+		D73731BA1FCC8671002BBA9C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731B91FCC8671002BBA9C /* AuthCoordinator.swift */; };
+		D73731BC1FCC86BD002BBA9C /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731BB1FCC86BD002BBA9C /* AuthModuleFactory.swift */; };
+		D73731BE1FCC879E002BBA9C /* ModuleFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731BD1FCC879E002BBA9C /* ModuleFactoryImp.swift */; };
+		D73731C01FCC8CAF002BBA9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73731BF1FCC8CAE002BBA9C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B460837EA0435142DDB28C1 /* Pods-ElectrosLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectrosLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab.release.xcconfig"; sourceTree = "<group>"; };
 		D161747433541C773471437E /* Pods-ElectrosLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectrosLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab.debug.xcconfig"; sourceTree = "<group>"; };
+		D724C21A1FCC8D9C009FBEE1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D724C21C1FCC8DB5009FBEE1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D724C21F1FCC8E73009FBEE1 /* HJFloatingTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJFloatingTextfield.swift; sourceTree = "<group>"; };
+		D724C2211FCC9228009FBEE1 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		D724C2231FCC9240009FBEE1 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		D73731781FCC78B5002BBA9C /* ElectrosLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectrosLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D737317B1FCC78B5002BBA9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D737317D1FCC78B5002BBA9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +67,16 @@
 		D73731A21FCC7EE5002BBA9C /* AppContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContent.swift; sourceTree = "<group>"; };
 		D73731A41FCC7F84002BBA9C /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		D73731A71FCC807E002BBA9C /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		D73731A91FCC812C002BBA9C /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
+		D73731AB1FCC82DA002BBA9C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		D73731AE1FCC830E002BBA9C /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		D73731B11FCC8372002BBA9C /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		D73731B31FCC84E7002BBA9C /* CoordinatorFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryImp.swift; sourceTree = "<group>"; };
+		D73731B71FCC8583002BBA9C /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
+		D73731B91FCC8671002BBA9C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		D73731BB1FCC86BD002BBA9C /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
+		D73731BD1FCC879E002BBA9C /* ModuleFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryImp.swift; sourceTree = "<group>"; };
+		D73731BF1FCC8CAE002BBA9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +101,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D724C2191FCC8D90009FBEE1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D724C21A1FCC8D9C009FBEE1 /* LoginView.swift */,
+				D724C21C1FCC8DB5009FBEE1 /* LoginController.swift */,
+				D724C2211FCC9228009FBEE1 /* SignupView.swift */,
+				D724C2231FCC9240009FBEE1 /* SignupController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D724C21E1FCC8E60009FBEE1 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				D724C21F1FCC8E73009FBEE1 /* HJFloatingTextfield.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		D737316F1FCC78B5002BBA9C = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +141,10 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D724C21E1FCC8E60009FBEE1 /* Subclasses */,
+				D73731B51FCC8552002BBA9C /* Flows */,
+				D73731B01FCC8363002BBA9C /* Factories */,
+				D73731AD1FCC8303002BBA9C /* Parents */,
 				D73731A61FCC8075002BBA9C /* Validators */,
 				D73731A11FCC7ED6002BBA9C /* Application */,
 				D73731A01FCC7ECD002BBA9C /* Extensions */,
@@ -100,6 +153,7 @@
 				D737318F1FCC7BB0002BBA9C /* Storyboards */,
 				D737317D1FCC78B5002BBA9C /* ViewController.swift */,
 				D73731821FCC78B5002BBA9C /* Assets.xcassets */,
+				D73731BF1FCC8CAE002BBA9C /* GoogleService-Info.plist */,
 				D73731871FCC78B5002BBA9C /* Info.plist */,
 			);
 			path = ElectrosLab;
@@ -149,6 +203,8 @@
 				D737317B1FCC78B5002BBA9C /* AppDelegate.swift */,
 				D73731A21FCC7EE5002BBA9C /* AppContent.swift */,
 				D73731A41FCC7F84002BBA9C /* Formatters.swift */,
+				D73731A91FCC812C002BBA9C /* AppDelegateViewModel.swift */,
+				D73731AB1FCC82DA002BBA9C /* ApplicationCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -159,6 +215,43 @@
 				D73731A71FCC807E002BBA9C /* Validators.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		D73731AD1FCC8303002BBA9C /* Parents */ = {
+			isa = PBXGroup;
+			children = (
+				D73731AE1FCC830E002BBA9C /* BaseCoordinator.swift */,
+			);
+			path = Parents;
+			sourceTree = "<group>";
+		};
+		D73731B01FCC8363002BBA9C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				D73731B11FCC8372002BBA9C /* CoordinatorFactory.swift */,
+				D73731B31FCC84E7002BBA9C /* CoordinatorFactoryImp.swift */,
+				D73731BB1FCC86BD002BBA9C /* AuthModuleFactory.swift */,
+				D73731BD1FCC879E002BBA9C /* ModuleFactoryImp.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		D73731B51FCC8552002BBA9C /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				D73731B61FCC855C002BBA9C /* AuthenticationFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		D73731B61FCC855C002BBA9C /* AuthenticationFlow */ = {
+			isa = PBXGroup;
+			children = (
+				D724C2191FCC8D90009FBEE1 /* Controllers */,
+				D73731B71FCC8583002BBA9C /* AuthCoordinatorOutput.swift */,
+				D73731B91FCC8671002BBA9C /* AuthCoordinator.swift */,
+			);
+			path = AuthenticationFlow;
 			sourceTree = "<group>";
 		};
 		FCC665829D0E8037B61B5011 /* Frameworks */ = {
@@ -233,6 +326,7 @@
 			files = (
 				D737318E1FCC7BA8002BBA9C /* Auth.storyboard in Resources */,
 				D73731861FCC78B5002BBA9C /* LaunchScreen.storyboard in Resources */,
+				D73731C01FCC8CAF002BBA9C /* GoogleService-Info.plist in Resources */,
 				D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */,
 				D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */,
 			);
@@ -323,18 +417,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73731B41FCC84E7002BBA9C /* CoordinatorFactoryImp.swift in Sources */,
+				D73731AA1FCC812C002BBA9C /* AppDelegateViewModel.swift in Sources */,
 				D73731941FCC7D02002BBA9C /* Coordinator.swift in Sources */,
 				D737319F1FCC7E46002BBA9C /* Extensions.swift in Sources */,
 				D73731A51FCC7F84002BBA9C /* Formatters.swift in Sources */,
+				D724C2241FCC9240009FBEE1 /* SignupController.swift in Sources */,
 				D737319D1FCC7E04002BBA9C /* RouterImp.swift in Sources */,
 				D73731911FCC7C64002BBA9C /* Storyboards.swift in Sources */,
 				D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */,
+				D724C21B1FCC8D9C009FBEE1 /* LoginView.swift in Sources */,
+				D724C2221FCC9228009FBEE1 /* SignupView.swift in Sources */,
+				D724C21D1FCC8DB5009FBEE1 /* LoginController.swift in Sources */,
 				D737319B1FCC7DF0002BBA9C /* Router.swift in Sources */,
+				D724C2201FCC8E73009FBEE1 /* HJFloatingTextfield.swift in Sources */,
 				D73731981FCC7D70002BBA9C /* BaseView.swift in Sources */,
+				D73731BE1FCC879E002BBA9C /* ModuleFactoryImp.swift in Sources */,
+				D73731BC1FCC86BD002BBA9C /* AuthModuleFactory.swift in Sources */,
 				D73731A81FCC807E002BBA9C /* Validators.swift in Sources */,
+				D73731AF1FCC830E002BBA9C /* BaseCoordinator.swift in Sources */,
 				D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */,
+				D73731BA1FCC8671002BBA9C /* AuthCoordinator.swift in Sources */,
+				D73731B81FCC8583002BBA9C /* AuthCoordinatorOutput.swift in Sources */,
 				D73731961FCC7D3E002BBA9C /* Presentable.swift in Sources */,
 				D737317C1FCC78B5002BBA9C /* AppDelegate.swift in Sources */,
+				D73731AC1FCC82DA002BBA9C /* ApplicationCoordinator.swift in Sources */,
+				D73731B21FCC8372002BBA9C /* CoordinatorFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
