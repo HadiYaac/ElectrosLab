@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2E52AC928583D42BED262B1 /* Pods_ElectrosLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */; };
 		D737317C1FCC78B5002BBA9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737317B1FCC78B5002BBA9C /* AppDelegate.swift */; };
 		D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737317D1FCC78B5002BBA9C /* ViewController.swift */; };
 		D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737317F1FCC78B5002BBA9C /* Main.storyboard */; };
 		D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73731821FCC78B5002BBA9C /* Assets.xcassets */; };
 		D73731861FCC78B5002BBA9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73731841FCC78B5002BBA9C /* LaunchScreen.storyboard */; };
+		D737318E1FCC7BA8002BBA9C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737318D1FCC7BA8002BBA9C /* Auth.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B460837EA0435142DDB28C1 /* Pods-ElectrosLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectrosLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab.release.xcconfig"; sourceTree = "<group>"; };
+		D161747433541C773471437E /* Pods-ElectrosLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectrosLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab.debug.xcconfig"; sourceTree = "<group>"; };
 		D73731781FCC78B5002BBA9C /* ElectrosLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectrosLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D737317B1FCC78B5002BBA9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D737317D1FCC78B5002BBA9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		D73731821FCC78B5002BBA9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D73731851FCC78B5002BBA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D73731871FCC78B5002BBA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D737318D1FCC7BA8002BBA9C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2E52AC928583D42BED262B1 /* Pods_ElectrosLab.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A486B51D0B40CB090EAC20C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D161747433541C773471437E /* Pods-ElectrosLab.debug.xcconfig */,
+				2B460837EA0435142DDB28C1 /* Pods-ElectrosLab.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D737316F1FCC78B5002BBA9C = {
 			isa = PBXGroup;
 			children = (
 				D737317A1FCC78B5002BBA9C /* ElectrosLab */,
 				D73731791FCC78B5002BBA9C /* Products */,
+				2A486B51D0B40CB090EAC20C /* Pods */,
+				FCC665829D0E8037B61B5011 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +72,7 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D737318F1FCC7BB0002BBA9C /* Storyboards */,
 				D737317B1FCC78B5002BBA9C /* AppDelegate.swift */,
 				D737317D1FCC78B5002BBA9C /* ViewController.swift */,
 				D737317F1FCC78B5002BBA9C /* Main.storyboard */,
@@ -64,6 +83,22 @@
 			path = ElectrosLab;
 			sourceTree = "<group>";
 		};
+		D737318F1FCC7BB0002BBA9C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D737318D1FCC7BA8002BBA9C /* Auth.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FCC665829D0E8037B61B5011 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D737318A1FCC78B5002BBA9C /* Build configuration list for PBXNativeTarget "ElectrosLab" */;
 			buildPhases = (
+				4A78AF5F4AD28192680E84DD /* [CP] Check Pods Manifest.lock */,
 				D73731741FCC78B5002BBA9C /* Sources */,
 				D73731751FCC78B5002BBA9C /* Frameworks */,
 				D73731761FCC78B5002BBA9C /* Resources */,
+				F78BD61BABAF0222C60FC992 /* [CP] Embed Pods Frameworks */,
+				458802823B0A0ED3A5CCB66A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D737318E1FCC7BA8002BBA9C /* Auth.storyboard in Resources */,
 				D73731861FCC78B5002BBA9C /* LaunchScreen.storyboard in Resources */,
 				D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */,
 				D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */,
@@ -130,6 +169,82 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		458802823B0A0ED3A5CCB66A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A78AF5F4AD28192680E84DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ElectrosLab-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F78BD61BABAF0222C60FC992 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D73731741FCC78B5002BBA9C /* Sources */ = {
@@ -272,11 +387,13 @@
 		};
 		D737318B1FCC78B5002BBA9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D161747433541C773471437E /* Pods-ElectrosLab.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGAW4ZB949;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElectrosLab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iOSApp.ElectrosLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +404,13 @@
 		};
 		D737318C1FCC78B5002BBA9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B460837EA0435142DDB28C1 /* Pods-ElectrosLab.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGAW4ZB949;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElectrosLab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iOSApp.ElectrosLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
