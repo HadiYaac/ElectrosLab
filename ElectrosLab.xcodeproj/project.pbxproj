@@ -14,6 +14,16 @@
 		D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73731821FCC78B5002BBA9C /* Assets.xcassets */; };
 		D73731861FCC78B5002BBA9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73731841FCC78B5002BBA9C /* LaunchScreen.storyboard */; };
 		D737318E1FCC7BA8002BBA9C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737318D1FCC7BA8002BBA9C /* Auth.storyboard */; };
+		D73731911FCC7C64002BBA9C /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731901FCC7C64002BBA9C /* Storyboards.swift */; };
+		D73731941FCC7D02002BBA9C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731931FCC7D02002BBA9C /* Coordinator.swift */; };
+		D73731961FCC7D3E002BBA9C /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731951FCC7D3E002BBA9C /* Presentable.swift */; };
+		D73731981FCC7D70002BBA9C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731971FCC7D70002BBA9C /* BaseView.swift */; };
+		D737319B1FCC7DF0002BBA9C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737319A1FCC7DF0002BBA9C /* Router.swift */; };
+		D737319D1FCC7E04002BBA9C /* RouterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737319C1FCC7E04002BBA9C /* RouterImp.swift */; };
+		D737319F1FCC7E46002BBA9C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737319E1FCC7E46002BBA9C /* Extensions.swift */; };
+		D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A21FCC7EE5002BBA9C /* AppContent.swift */; };
+		D73731A51FCC7F84002BBA9C /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A41FCC7F84002BBA9C /* Formatters.swift */; };
+		D73731A81FCC807E002BBA9C /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731A71FCC807E002BBA9C /* Validators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +37,16 @@
 		D73731851FCC78B5002BBA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D73731871FCC78B5002BBA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D737318D1FCC7BA8002BBA9C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		D73731901FCC7C64002BBA9C /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		D73731931FCC7D02002BBA9C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D73731951FCC7D3E002BBA9C /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		D73731971FCC7D70002BBA9C /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D737319A1FCC7DF0002BBA9C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D737319C1FCC7E04002BBA9C /* RouterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterImp.swift; sourceTree = "<group>"; };
+		D737319E1FCC7E46002BBA9C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D73731A21FCC7EE5002BBA9C /* AppContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContent.swift; sourceTree = "<group>"; };
+		D73731A41FCC7F84002BBA9C /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		D73731A71FCC807E002BBA9C /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,12 +92,14 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D73731A61FCC8075002BBA9C /* Validators */,
+				D73731A11FCC7ED6002BBA9C /* Application */,
+				D73731A01FCC7ECD002BBA9C /* Extensions */,
+				D73731991FCC7DE3002BBA9C /* Router */,
+				D73731921FCC7CF1002BBA9C /* Protocols */,
 				D737318F1FCC7BB0002BBA9C /* Storyboards */,
-				D737317B1FCC78B5002BBA9C /* AppDelegate.swift */,
 				D737317D1FCC78B5002BBA9C /* ViewController.swift */,
-				D737317F1FCC78B5002BBA9C /* Main.storyboard */,
 				D73731821FCC78B5002BBA9C /* Assets.xcassets */,
-				D73731841FCC78B5002BBA9C /* LaunchScreen.storyboard */,
 				D73731871FCC78B5002BBA9C /* Info.plist */,
 			);
 			path = ElectrosLab;
@@ -86,9 +108,57 @@
 		D737318F1FCC7BB0002BBA9C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D73731841FCC78B5002BBA9C /* LaunchScreen.storyboard */,
+				D737317F1FCC78B5002BBA9C /* Main.storyboard */,
 				D737318D1FCC7BA8002BBA9C /* Auth.storyboard */,
+				D73731901FCC7C64002BBA9C /* Storyboards.swift */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D73731921FCC7CF1002BBA9C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D73731931FCC7D02002BBA9C /* Coordinator.swift */,
+				D73731951FCC7D3E002BBA9C /* Presentable.swift */,
+				D73731971FCC7D70002BBA9C /* BaseView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D73731991FCC7DE3002BBA9C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D737319A1FCC7DF0002BBA9C /* Router.swift */,
+				D737319C1FCC7E04002BBA9C /* RouterImp.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D73731A01FCC7ECD002BBA9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D737319E1FCC7E46002BBA9C /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D73731A11FCC7ED6002BBA9C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D737317B1FCC78B5002BBA9C /* AppDelegate.swift */,
+				D73731A21FCC7EE5002BBA9C /* AppContent.swift */,
+				D73731A41FCC7F84002BBA9C /* Formatters.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D73731A61FCC8075002BBA9C /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				D73731A71FCC807E002BBA9C /* Validators.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		FCC665829D0E8037B61B5011 /* Frameworks */ = {
@@ -217,6 +287,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -232,6 +303,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -251,7 +323,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73731941FCC7D02002BBA9C /* Coordinator.swift in Sources */,
+				D737319F1FCC7E46002BBA9C /* Extensions.swift in Sources */,
+				D73731A51FCC7F84002BBA9C /* Formatters.swift in Sources */,
+				D737319D1FCC7E04002BBA9C /* RouterImp.swift in Sources */,
+				D73731911FCC7C64002BBA9C /* Storyboards.swift in Sources */,
 				D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */,
+				D737319B1FCC7DF0002BBA9C /* Router.swift in Sources */,
+				D73731981FCC7D70002BBA9C /* BaseView.swift in Sources */,
+				D73731A81FCC807E002BBA9C /* Validators.swift in Sources */,
+				D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */,
+				D73731961FCC7D3E002BBA9C /* Presentable.swift in Sources */,
 				D737317C1FCC78B5002BBA9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
