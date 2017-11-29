@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1A-2R-ZcN">
-                                <rect key="frame" x="0.0" y="30" width="375" height="632"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="644"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC6-EN-z5f" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="200" width="335" height="30"/>
@@ -232,9 +232,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SHb-73-RTa" firstAttribute="bottom" secondItem="o1A-2R-ZcN" secondAttribute="bottom" constant="5" id="Bcv-cA-kec"/>
+                            <constraint firstItem="SHb-73-RTa" firstAttribute="bottom" secondItem="o1A-2R-ZcN" secondAttribute="bottom" constant="1" id="Bcv-cA-kec"/>
                             <constraint firstItem="o1A-2R-ZcN" firstAttribute="leading" secondItem="mk0-J0-Tzp" secondAttribute="leading" id="E7M-qO-b7A"/>
-                            <constraint firstItem="o1A-2R-ZcN" firstAttribute="top" secondItem="SHb-73-RTa" secondAttribute="top" constant="10" id="LiJ-N3-aHa"/>
+                            <constraint firstItem="o1A-2R-ZcN" firstAttribute="top" secondItem="SHb-73-RTa" secondAttribute="top" constant="2" id="LiJ-N3-aHa"/>
                             <constraint firstAttribute="trailing" secondItem="o1A-2R-ZcN" secondAttribute="trailing" id="rVc-fA-WnE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SHb-73-RTa"/>

@@ -45,6 +45,4 @@ class LoginController: UIViewController, LoginView {
     @IBAction func guestTapped(_ sender: UIButton) {
         self.onGuestTap?()
     }
-    
-    
 }
