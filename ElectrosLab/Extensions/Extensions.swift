@@ -195,6 +195,10 @@ extension UIColor {
     public class func color(withHexValue value: AppColorHex, alpha: CGFloat = 1.0) -> UIColor {
         return .color(withHexValue: value.rawValue, alpha:alpha)
     }
+    
+    static func electrosLabBlue() -> UIColor {
+        return UIColor.init(red: 37.0/255.0, green: 57.0/255.0, blue: 65.0/255.0, alpha: 1.0)
+    }
 }
 
 /// Returns the name of the nib file as `String` from the name of the class (note : nib file and its associated class must have same names)

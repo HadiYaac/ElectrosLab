@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEF-ml-V0v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEF-ml-V0v">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +22,150 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayL-8A-KrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-342" y="107"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="S2O-fR-Sl1">
+            <objects>
+                <viewController id="hQI-Xe-SZg" customClass="NewsController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LDr-i4-bRA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Nv-m9-9Rs">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7y5-ri-ehJ" firstAttribute="trailing" secondItem="7Nv-m9-9Rs" secondAttribute="trailing" id="6aH-9E-hKH"/>
+                            <constraint firstItem="7Nv-m9-9Rs" firstAttribute="top" secondItem="7y5-ri-ehJ" secondAttribute="top" id="P7Z-jb-cWi"/>
+                            <constraint firstItem="7Nv-m9-9Rs" firstAttribute="leading" secondItem="7y5-ri-ehJ" secondAttribute="leading" id="Xj9-QE-CJg"/>
+                            <constraint firstItem="7y5-ri-ehJ" firstAttribute="bottom" secondItem="7Nv-m9-9Rs" secondAttribute="bottom" id="iYP-e2-gI3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7y5-ri-ehJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="WAY-iy-ldB"/>
+                    <connections>
+                        <outlet property="tableView" destination="7Nv-m9-9Rs" id="PSC-ej-UoO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6a-92-daQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="434"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="rPP-gR-ztE">
+            <objects>
+                <viewController id="0oB-nq-Hpt" customClass="WishlistController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qvx-8S-6fe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OvP-wk-0Im">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OvP-wk-0Im" firstAttribute="leading" secondItem="kYo-m3-iSv" secondAttribute="leading" id="DXB-GG-iE2"/>
+                            <constraint firstItem="kYo-m3-iSv" firstAttribute="trailing" secondItem="OvP-wk-0Im" secondAttribute="trailing" id="HAJ-D4-sDi"/>
+                            <constraint firstItem="kYo-m3-iSv" firstAttribute="bottom" secondItem="OvP-wk-0Im" secondAttribute="bottom" id="SQV-DX-NRg"/>
+                            <constraint firstItem="OvP-wk-0Im" firstAttribute="top" secondItem="kYo-m3-iSv" secondAttribute="top" id="nK6-zW-j0V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kYo-m3-iSv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zOG-Tw-9Co"/>
+                    <connections>
+                        <outlet property="tableView" destination="OvP-wk-0Im" id="URN-aX-Sbh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qub-V8-Hqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="1137"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="uPa-XN-joq">
+            <objects>
+                <viewController id="72J-gS-Eaw" customClass="SettingsController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Zh-PL-rYq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-gH-Czc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aB9-zI-dBp" firstAttribute="bottom" secondItem="Ykc-gH-Czc" secondAttribute="bottom" id="0aa-Hg-587"/>
+                            <constraint firstItem="Ykc-gH-Czc" firstAttribute="top" secondItem="aB9-zI-dBp" secondAttribute="top" id="cx1-mt-Nfx"/>
+                            <constraint firstItem="Ykc-gH-Czc" firstAttribute="leading" secondItem="aB9-zI-dBp" secondAttribute="leading" id="pU7-4w-TZe"/>
+                            <constraint firstItem="aB9-zI-dBp" firstAttribute="trailing" secondItem="Ykc-gH-Czc" secondAttribute="trailing" id="y0Y-sM-JwC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aB9-zI-dBp"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="TpV-ui-7EE"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ykc-gH-Czc" id="c8B-VD-PaP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTt-Ny-tfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="1825"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="EsC-OW-RCI">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesController" id="8mb-CC-wq8" customClass="CategoriesController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LRR-L2-HhK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RRB-J7-fv1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I3Y-XC-RZq" firstAttribute="trailing" secondItem="RRB-J7-fv1" secondAttribute="trailing" id="3tr-2o-mip"/>
+                            <constraint firstItem="RRB-J7-fv1" firstAttribute="top" secondItem="I3Y-XC-RZq" secondAttribute="top" id="N42-J8-A1X"/>
+                            <constraint firstItem="RRB-J7-fv1" firstAttribute="leading" secondItem="I3Y-XC-RZq" secondAttribute="leading" id="QPb-nk-Gos"/>
+                            <constraint firstItem="I3Y-XC-RZq" firstAttribute="bottom" secondItem="RRB-J7-fv1" secondAttribute="bottom" id="tYw-B8-jd4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I3Y-XC-RZq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="0eI-mG-0GC"/>
+                    <connections>
+                        <outlet property="tableView" destination="RRB-J7-fv1" id="lB8-y2-iDX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtM-Ul-Z8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="-232"/>
+        </scene>
+        <!--Tabbar Controller-->
+        <scene sceneID="fNP-9B-tef">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarController" id="Vtz-pe-jhm" customClass="TabbarController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2aZ-LU-6T7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8mb-CC-wq8" kind="relationship" relationship="viewControllers" id="W9g-Lw-RqO"/>
+                        <segue destination="hQI-Xe-SZg" kind="relationship" relationship="viewControllers" id="2qx-kR-zlN"/>
+                        <segue destination="0oB-nq-Hpt" kind="relationship" relationship="viewControllers" id="UoQ-r6-i4K"/>
+                        <segue destination="72J-gS-Eaw" kind="relationship" relationship="viewControllers" id="LcY-jl-eoT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0s-2M-Exm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="99"/>
         </scene>
     </scenes>
 </document>

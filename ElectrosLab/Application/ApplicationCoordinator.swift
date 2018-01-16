@@ -52,7 +52,10 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     private func runHomeFlow() {
-        
+        let (coordinator, module) = coordinatorFactory.makeTabbarCoordinator()
+        addDependency(coordinator)
+        router.setRootModule(module)
+        coordinator.start()
     }
     
     

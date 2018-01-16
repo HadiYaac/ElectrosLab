@@ -39,6 +39,19 @@
 		D73731BC1FCC86BD002BBA9C /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731BB1FCC86BD002BBA9C /* AuthModuleFactory.swift */; };
 		D73731BE1FCC879E002BBA9C /* ModuleFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73731BD1FCC879E002BBA9C /* ModuleFactoryImp.swift */; };
 		D73731C01FCC8CAF002BBA9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73731BF1FCC8CAE002BBA9C /* GoogleService-Info.plist */; };
+		D73D75062002818900DD61BA /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D75052002818900DD61BA /* TabbarController.swift */; };
+		D73D75082002872D00DD61BA /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D75072002872D00DD61BA /* TabbarCoordinator.swift */; };
+		D73D750A20028E1E00DD61BA /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D750920028E1E00DD61BA /* CategoriesController.swift */; };
+		D73D750F20028EE800DD61BA /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73D750D20028EE800DD61BA /* CategoriesCell.swift */; };
+		D73D751020028EE800DD61BA /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73D750E20028EE800DD61BA /* CategoriesCell.xib */; };
+		D73D75122002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D73D75112002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg */; };
+		D792171A200BC2CC0087559A /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921719200BC2CC0087559A /* NewsController.swift */; };
+		D792171D200BC3860087559A /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792171B200BC3860087559A /* NewsCell.swift */; };
+		D792171E200BC3860087559A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D792171C200BC3860087559A /* NewsCell.xib */; };
+		D7921720200BCE0B0087559A /* WishlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792171F200BCE0B0087559A /* WishlistController.swift */; };
+		D7921722200BD02E0087559A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921721200BD02E0087559A /* SettingsController.swift */; };
+		D7921727200BD0F40087559A /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921725200BD0F40087559A /* SettingsCell.swift */; };
+		D7921728200BD0F40087559A /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7921726200BD0F40087559A /* SettingsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +90,19 @@
 		D73731BB1FCC86BD002BBA9C /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		D73731BD1FCC879E002BBA9C /* ModuleFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryImp.swift; sourceTree = "<group>"; };
 		D73731BF1FCC8CAE002BBA9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D73D75052002818900DD61BA /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		D73D75072002872D00DD61BA /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		D73D750920028E1E00DD61BA /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
+		D73D750D20028EE800DD61BA /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
+		D73D750E20028EE800DD61BA /* CategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCell.xib; sourceTree = "<group>"; };
+		D73D75112002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Raspberry-Pi-2-Bare-FL.jpg"; sourceTree = "<group>"; };
+		D7921719200BC2CC0087559A /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		D792171B200BC3860087559A /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		D792171C200BC3860087559A /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		D792171F200BCE0B0087559A /* WishlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistController.swift; sourceTree = "<group>"; };
+		D7921721200BD02E0087559A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		D7921725200BD0F40087559A /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		D7921726200BD0F40087559A /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +167,7 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D73D750B20028ECB00DD61BA /* UI */,
 				D724C21E1FCC8E60009FBEE1 /* Subclasses */,
 				D73731B51FCC8552002BBA9C /* Flows */,
 				D73731B01FCC8363002BBA9C /* Factories */,
@@ -239,6 +266,7 @@
 		D73731B51FCC8552002BBA9C /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				D73D75032002816400DD61BA /* MainFlow */,
 				D73731B61FCC855C002BBA9C /* AuthenticationFlow */,
 			);
 			path = Flows;
@@ -252,6 +280,49 @@
 				D73731B91FCC8671002BBA9C /* AuthCoordinator.swift */,
 			);
 			path = AuthenticationFlow;
+			sourceTree = "<group>";
+		};
+		D73D75032002816400DD61BA /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				D73D75042002816D00DD61BA /* Controllers */,
+				D73D75072002872D00DD61BA /* TabbarCoordinator.swift */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		D73D75042002816D00DD61BA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D73D75052002818900DD61BA /* TabbarController.swift */,
+				D73D750920028E1E00DD61BA /* CategoriesController.swift */,
+				D7921719200BC2CC0087559A /* NewsController.swift */,
+				D792171F200BCE0B0087559A /* WishlistController.swift */,
+				D7921721200BD02E0087559A /* SettingsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D73D750B20028ECB00DD61BA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D73D75112002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg */,
+				D73D750C20028ED100DD61BA /* TableViewCells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D73D750C20028ED100DD61BA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D73D750D20028EE800DD61BA /* CategoriesCell.swift */,
+				D73D750E20028EE800DD61BA /* CategoriesCell.xib */,
+				D792171B200BC3860087559A /* NewsCell.swift */,
+				D792171C200BC3860087559A /* NewsCell.xib */,
+				D7921725200BD0F40087559A /* SettingsCell.swift */,
+				D7921726200BD0F40087559A /* SettingsCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		FCC665829D0E8037B61B5011 /* Frameworks */ = {
@@ -326,9 +397,13 @@
 			files = (
 				D737318E1FCC7BA8002BBA9C /* Auth.storyboard in Resources */,
 				D73731861FCC78B5002BBA9C /* LaunchScreen.storyboard in Resources */,
+				D792171E200BC3860087559A /* NewsCell.xib in Resources */,
+				D7921728200BD0F40087559A /* SettingsCell.xib in Resources */,
 				D73731C01FCC8CAF002BBA9C /* GoogleService-Info.plist in Resources */,
 				D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */,
+				D73D75122002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg in Resources */,
 				D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */,
+				D73D751020028EE800DD61BA /* CategoriesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,18 +493,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				D73731B41FCC84E7002BBA9C /* CoordinatorFactoryImp.swift in Sources */,
+				D792171A200BC2CC0087559A /* NewsController.swift in Sources */,
 				D73731AA1FCC812C002BBA9C /* AppDelegateViewModel.swift in Sources */,
+				D7921720200BCE0B0087559A /* WishlistController.swift in Sources */,
 				D73731941FCC7D02002BBA9C /* Coordinator.swift in Sources */,
+				D73D750A20028E1E00DD61BA /* CategoriesController.swift in Sources */,
 				D737319F1FCC7E46002BBA9C /* Extensions.swift in Sources */,
+				D792171D200BC3860087559A /* NewsCell.swift in Sources */,
 				D73731A51FCC7F84002BBA9C /* Formatters.swift in Sources */,
 				D724C2241FCC9240009FBEE1 /* SignupController.swift in Sources */,
 				D737319D1FCC7E04002BBA9C /* RouterImp.swift in Sources */,
+				D73D75062002818900DD61BA /* TabbarController.swift in Sources */,
 				D73731911FCC7C64002BBA9C /* Storyboards.swift in Sources */,
 				D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */,
+				D7921727200BD0F40087559A /* SettingsCell.swift in Sources */,
 				D724C21B1FCC8D9C009FBEE1 /* LoginView.swift in Sources */,
 				D724C2221FCC9228009FBEE1 /* SignupView.swift in Sources */,
 				D724C21D1FCC8DB5009FBEE1 /* LoginController.swift in Sources */,
 				D737319B1FCC7DF0002BBA9C /* Router.swift in Sources */,
+				D73D750F20028EE800DD61BA /* CategoriesCell.swift in Sources */,
+				D73D75082002872D00DD61BA /* TabbarCoordinator.swift in Sources */,
+				D7921722200BD02E0087559A /* SettingsController.swift in Sources */,
 				D724C2201FCC8E73009FBEE1 /* HJFloatingTextfield.swift in Sources */,
 				D73731981FCC7D70002BBA9C /* BaseView.swift in Sources */,
 				D73731BE1FCC879E002BBA9C /* ModuleFactoryImp.swift in Sources */,
