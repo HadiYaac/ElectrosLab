@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import Firebase
+import IQKeyboardManagerSwift
 
 final class AppDelegateViewModel: NSObject {
     var window: UIWindow?
@@ -24,7 +25,9 @@ final class AppDelegateViewModel: NSObject {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         applicationCoordinator?.start()
-        //window?.tintColor = .blue
+        UIApplication.shared.statusBarStyle = .lightContent
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         return true
     }
     

@@ -41,7 +41,9 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     
     private func showSignUp() {
         let singupOutput = factory.makeSignupOutput()
-        
+        singupOutput.userDidSignup = { [weak self] in
+            self?.finishFlow?()
+        }
         router.push(singupOutput)
     }
 }

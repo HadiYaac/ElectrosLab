@@ -412,7 +412,7 @@ extension UITextField {
         }
     }
     
-    public func setupBottomBorder() {
+    public func setupBottomBorder(color: UIColor = UIColor.lightGray) {
         subviews.forEach { (subview) in
             if subview.tag == 347 {
                 subview.removeFromSuperview()
@@ -438,6 +438,11 @@ extension UIAlertController {
     
     static func showAlert(with title: String, message: String, defaultActionButtonTitle: String = "Ok") {
         let alert = UIAlertController.init(title: title, message: message, defaultActionButtonTitle: defaultActionButtonTitle, tintColor: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func showErrorAlert() {
+        let alert = UIAlertController.init(title: "", message: "Something went wrong")
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     

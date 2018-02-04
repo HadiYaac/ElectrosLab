@@ -9,10 +9,12 @@
 import UIKit
 
 protocol TabbarView: BaseView {
-    
+    var didPressBasket: ((UINavigationController) -> Void)? { get set }
 }
 
 class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarView {
+    var didPressBasket: ((UINavigationController) -> Void)?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +32,15 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
-        let basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: nil)
+        let basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: #selector(basketPressed))
+        basketBarButton.image = #imageLiteral(resourceName: "basket")
+        basketBarButton.title = nil
+        
         self.navigationItem.rightBarButtonItem = basketBarButton
+    }
+    
+    @objc func basketPressed() {
+        self.didPressBasket?(navigationController!)
     }
     
     func setupTabbarItems() {
@@ -41,9 +50,14 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         let settings = tabBar.items![3]
         
         categories.title = "Categories"
+        categories.image = #imageLiteral(resourceName: "list")
         news.title = "News"
+        news.image = #imageLiteral(resourceName: "news")
         wishList.title = "Wishlist"
+        wishList.image = #imageLiteral(resourceName: "star")
         settings.title = "Settings"
+        settings.image = #imageLiteral(resourceName: "settingsGear")
+        tabBar.tintColor = UIColor.electrosLabBlue()
     }
 
 

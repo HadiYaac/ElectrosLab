@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SVProgressHUD
+import FirebaseFirestore
 
 protocol CategoriesView: BaseView {
-    
+  //  var didSelectCategory:(() -> CategoryItem?) { get set }
 }
 
-class CategoriesController: UIViewController {
+class CategoriesController: UIViewController, CategoriesView {
 
     @IBOutlet weak var tableView: UITableView!
+    var tableValues = [CategoryItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        //setupNavigationBar()
+        fetchCategories()
     }
     
     func setupTableView() {
@@ -29,27 +32,56 @@ class CategoriesController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    func setupNavigationBar() {
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.black]
-        }        
+    func fetchCategories() {
+        SVProgressHUD.show()
+        var categoriesArray = [CategoryItem]()
+        FireStoreManager.fireStoreGetQuery(documentPath: FirestoreDocumentPath.categories.rawValue) { (error, documentsArray) in
+            SVProgressHUD.dismiss()
+
+            if error != nil {
+                UIAlertController.showErrorAlert()
+            } else {
+                if let result = documentsArray {
+                    result.forEach({ (doc) in
+                        let category = CategoryItem(from: doc.data()!, id: doc.documentID)
+                        categoriesArray.append(category)
+                    })
+                    self.tableValues = categoriesArray
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func showCategoryDetails(category: CategoryItem) {
+        let categoryDetailsController = CategoryDetailsController.controllerInStoryboard(.store)
+        categoryDetailsController.category = category
+        navigationController?.pushViewController(categoryDetailsController, animated: true)
+    }
+}
+
+extension CategoriesController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
 }
 
 
 extension CategoriesController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.tableValues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CategoriesCell
-        cell.setCell(image: #imageLiteral(resourceName: "Raspberry-Pi-2-Bare-FL.jpg"), title: "Category \(indexPath.row)")
+        let item = self.tableValues[indexPath.row]
+        cell.setCellWithCategoryItem(category: item)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let item = self.tableValues[indexPath.row]
+        showCategoryDetails(category: item)
     }
 }
