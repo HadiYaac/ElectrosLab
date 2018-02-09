@@ -27,8 +27,16 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
     }
     
     @objc func emptyWishList() {
-        ELUserDefaultsManager.clearWishlist()
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadWishlist"), object: nil)
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete all items from your wishlist?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Clear Wishlist", style: .destructive) { (action) in
+            ELUserDefaultsManager.clearWishlist()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadWishlist"), object: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func setupNavigationItem() {

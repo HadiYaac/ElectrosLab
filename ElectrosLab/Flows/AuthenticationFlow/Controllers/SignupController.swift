@@ -90,6 +90,7 @@ class SignupController: UIViewController, SignupView {
         setupTextFieldWithBorder(textField: streetTextField, placeholder: "Street")
         setupTextFieldWithBorder(textField: buildingTextField, placeholder: "Building Name")
         setupTextFieldWithBorder(textField: floorTextField, placeholder: "Floor")
+        floorTextField.keyboardType = .numberPad
     }
     
     func setupTextFieldWithBorder(textField: HJFloatingLabelTextField ,placeholder: String) {
