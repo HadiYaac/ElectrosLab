@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 
 class SignupController: UIViewController, SignupView {
@@ -26,10 +27,40 @@ class SignupController: UIViewController, SignupView {
     
     var userDidSignup: (() -> Void)?
     
+    var isEditingProfile: Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         signupButton.backgroundColor = UIColor.electrosLabBlue()
+        setupView()
+    }
+    
+    func setupView() {
+        if isEditingProfile {
+            title = "Edit Profile"
+            signupButton.setTitle("Save Changes", for: .normal)
+            fillFieldsWithUser()
+        } else {
+            title = "Sign Up"
+            signupButton.setTitle("Sign Up", for: .normal)
+        }
+    }
+    
+    func fillFieldsWithUser() {
+        passwordTextField.isHidden = true
+        confirmPasswordTextField.isHidden = true
+        emailAddressTextField.isEnabled = false
+        if let user = StorageManager.getCurrentUser() {
+            fullNameTextField.text = user.name
+            phoneNumberTextField.text = user.phoneNumber
+            emailAddressTextField.text = user.email
+            cityTextfield.text = user.city
+            streetTextField.text = user.street
+            buildingTextField.text = user.building
+            floorTextField.text = user.floor
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +104,7 @@ class SignupController: UIViewController, SignupView {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         }
-        title = "Sign Up"
+        
     }
     
     func buildRegistrationDictionary() -> [String : Any] {
@@ -144,17 +175,39 @@ class SignupController: UIViewController, SignupView {
     }
     
     @IBAction func signupAction(_ sender: UIButton) {
-        if didFillRequiredFields() && passwordsMatching() {
-                // signup
-            signup()
+        if isEditingProfile {
+            let params = buildRegistrationDictionary()
+            if let user = Auth.auth().currentUser {
+                SVProgressHUD.showLoader()
+                FireStoreManager.updateUserInFirestoreDB(user: user, params: params, completion: { (error) in
+                    SVProgressHUD.dismiss()
+                    if let error = error {
+                        UIAlertController.showAlert(with: "", message: error.localizedDescription)
+                    } else {
+                        let newUser = ELUser(from: params, userId: user.uid)
+                        StorageManager.saveCurrentUser(user: newUser)
+                        self.navigationController?.popViewController(animated: true)
+                        UIAlertController.showAlert(with: "", message: "Your info has been updated successfully")
+                    }
+                })
+            }
         } else {
-            UIAlertController.showAlert(with: "", message: generateErrorMessage())
+            if didFillRequiredFields() && passwordsMatching() {
+                signup()
+            } else {
+                UIAlertController.showAlert(with: "", message: generateErrorMessage())
+            }
         }
+        
+
     }
     
     func signup() {
+        
         if let email = emailAddressTextField.text, let password = passwordTextField.text {
+            SVProgressHUD.showLoader()
             FireStoreManager.signupUser(email: email, password: password, completion: { (error, user) in
+                SVProgressHUD.dismiss()
                 if let user = user {
                     self.updateUserObjectInFSDB(user: user, params: self.buildRegistrationDictionary())
                 } else if let error = error {
@@ -167,10 +220,14 @@ class SignupController: UIViewController, SignupView {
     }
     
     func updateUserObjectInFSDB(user: User, params: [String : Any]) {
+        SVProgressHUD.showLoader()
         FireStoreManager.updateUserInFirestoreDB(user: user, params: params) { (error) in
+            SVProgressHUD.dismiss()
             if let error = error {
                 UIAlertController.showAlert(with: "", message: error.localizedDescription)
             } else {
+                let currentUser = ELUser(from: params, userId: user.uid)
+                StorageManager.saveCurrentUser(user: currentUser)
                 self.userDidSignup?()
             }
         }

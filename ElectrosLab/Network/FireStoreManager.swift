@@ -104,6 +104,7 @@ final class FireStoreManager {
             itemsDictionary.append(itemDic)
         }
         orderDictionary["items"] = itemsDictionary
+        orderDictionary["created_at"] = "\(NSDate().timeIntervalSince1970)"
         
         db.collection(FirestoreDocumentPath.orders.rawValue).addDocument(data: orderDictionary) { (error) in
             if error != nil {

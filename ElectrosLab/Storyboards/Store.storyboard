@@ -100,6 +100,7 @@
                         <outlet property="itemImageView" destination="wcT-z1-k1Q" id="DiX-Wt-jO6"/>
                         <outlet property="leftButton" destination="Bge-ib-QVd" id="C48-M7-DO1"/>
                         <outlet property="rightButton" destination="nFy-fL-35d" id="ZdA-ce-gnh"/>
+                        <outlet property="stackView" destination="cYw-XF-Gc9" id="Cde-ZH-DLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vk-XH-56i" userLabel="First Responder" sceneMemberID="firstResponder"/>

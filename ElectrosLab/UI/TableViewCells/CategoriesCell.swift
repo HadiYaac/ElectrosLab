@@ -20,11 +20,14 @@ class CategoriesCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func setCell(image: UIImage?, title: String) {
-        if let image = image {
-            categoryImageView.image = image
+    func setCell(item: Item) {
+        if let imageUrl = item.picUrl {
+            let url = URL(string: imageUrl)
+            let resource = ImageResource(downloadURL: url!)
+            categoryImageView.kf.indicatorType = .activity
+            categoryImageView.kf.setImage(with: resource)
         }
-        categoryTitleLabel.text = title
+        categoryTitleLabel.text = item.name
     }
     
     

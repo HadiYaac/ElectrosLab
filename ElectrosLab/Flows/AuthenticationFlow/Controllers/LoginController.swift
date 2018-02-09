@@ -26,7 +26,6 @@ class LoginController: UIViewController, LoginView {
         super.viewDidLoad()
         setupButtons()
         view.backgroundColor = UIColor.electrosLabBlue()
-        setupNavigationBar()
         #if DEBUG
             phoneNumberTxtfield.text = "hu@me.com"
             passwordTxtfield.text = "123456"
@@ -41,13 +40,6 @@ class LoginController: UIViewController, LoginView {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupTextFields()
-    }
-    
-    func setupNavigationBar() {
-        navigationController?.navigationBar.barTintColor = UIColor.electrosLabBlue()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = UIColor.white
-        
     }
     
     func setupTextFields() {
@@ -95,6 +87,8 @@ class LoginController: UIViewController, LoginView {
             if let error = error  {
                 UIAlertController.showAlert(with: "", message: error.localizedDescription)
             } else {
+                let currentUser = ELUser(from: userData!, userId: user.uid)
+                StorageManager.saveCurrentUser(user: currentUser)
                 self.userAuthenticated?()
                 printD(userData!)
             }

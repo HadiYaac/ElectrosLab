@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CheckoutController: UIViewController {
 
@@ -44,7 +45,9 @@ class CheckoutController: UIViewController {
     
     func makeOrderRequest() {
         printD("made order")
+        SVProgressHUD.showLoader()
         FireStoreManager.uploadNewOrder(orderItems: self.tableValues) { (error, success) in
+            SVProgressHUD.dismiss()
             if let error = error {
                 UIAlertController.showAlert(with: "", message: error.localizedDescription)
             } else {

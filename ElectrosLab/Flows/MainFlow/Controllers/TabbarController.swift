@@ -14,13 +14,21 @@ protocol TabbarView: BaseView {
 
 class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarView {
     var didPressBasket: ((UINavigationController) -> Void)?
-    
+    var emptyWishListBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabbarItems()
         setupNavigationItem()
         title = "ElectroSLab"
+        self.delegate = self
+        emptyWishListBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
+        self.selectedIndex = 1
+    }
+    
+    @objc func emptyWishList() {
+        ELUserDefaultsManager.clearWishlist()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadWishlist"), object: nil)
     }
     
     func setupNavigationItem() {
@@ -40,7 +48,11 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
     }
     
     @objc func basketPressed() {
-        self.didPressBasket?(navigationController!)
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+        } else {
+            self.didPressBasket?(navigationController!)
+        }
     }
     
     func setupTabbarItems() {
@@ -61,4 +73,16 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
     }
 
 
+}
+
+extension TabbarController {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController.isKind(of: WishlistController.self) {
+            navigationItem.rightBarButtonItems?.append(emptyWishListBarButton)
+        } else {
+            if (navigationItem.rightBarButtonItems?.count)! > 1 {
+                navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
+        }
+    }
 }

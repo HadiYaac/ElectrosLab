@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SVProgressHUD
 
 class ItemDetailsController: UIViewController {
 
@@ -15,6 +16,9 @@ class ItemDetailsController: UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBOutlet weak var stackView: UIStackView!
+    var isWithList: Bool = false
     
     var selectedItem: Item?
     
@@ -25,8 +29,12 @@ class ItemDetailsController: UIViewController {
         }
         setupButtons()
         title = "Item Details"
+        if isWithList {
+            stackView.removeArrangedSubview(rightButton)
+            rightButton.removeFromSuperview()
+        }
     }
-    
+
     func fillViewFromItem(item: Item) {
         if let detailsText = item.name {
             itemDescriptionLabel.text = detailsText
@@ -55,12 +63,11 @@ class ItemDetailsController: UIViewController {
     /// Add item to basket
     @IBAction func leftButtonAction(_ sender: UIButton) {
         ELUserDefaultsManager.addItemToBasket(item: selectedItem!)
+        SVProgressHUD.showSuccessStatus(status: "Item added to basket")
     }
     /// Add item to wishlist
     @IBAction func rightButtonAction(_ sender: UIButton) {
-    
+        ELUserDefaultsManager.addItemToWishlist(item: selectedItem!)
+        SVProgressHUD.showSuccessStatus(status: "Item added to wishlist")
     }
-    
-    
-
 }

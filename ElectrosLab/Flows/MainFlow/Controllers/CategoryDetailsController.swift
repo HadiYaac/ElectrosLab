@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CategoryDetailsController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +35,9 @@ class CategoryDetailsController: UIViewController {
     }
     
     func fetchItems(categoryId: String) {
+        SVProgressHUD.showLoader()
         FireStoreManager.getItemsForCategory(categoryId: categoryId) { (error, items) in
+            SVProgressHUD.dismiss()
             if error != nil {
                 UIAlertController.showErrorAlert()
             } else {
@@ -67,7 +70,11 @@ extension CategoryDetailsController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = self.tableValues[indexPath.row]
-        proceedToItemDetails(item: item)
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+        } else {
+            proceedToItemDetails(item: item)
+        }
     }
 }
 

@@ -19,7 +19,11 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
     }
     
     override func start() {
-        showLogin()
+        if StorageManager.getCurrentUser() != nil {
+            self.finishFlow?()
+        } else {
+            showLogin()
+        }
     }
     
     private func showLogin() {

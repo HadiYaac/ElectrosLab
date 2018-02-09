@@ -66,6 +66,13 @@
 		D78D46FC20135EA5005C6561 /* BasketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78D46FB20135EA5005C6561 /* BasketController.swift */; };
 		D791BC032027B0FC0026132C /* MakeOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC012027B0FC0026132C /* MakeOrderCell.swift */; };
 		D791BC042027B0FC0026132C /* MakeOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D791BC022027B0FC0026132C /* MakeOrderCell.xib */; };
+		D791BC082029E6840026132C /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC072029E6840026132C /* SessionManager.swift */; };
+		D791BC0A2029E6920026132C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC092029E6920026132C /* User.swift */; };
+		D791BC0C202AE5B50026132C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC0B202AE5B50026132C /* StorageManager.swift */; };
+		D791BC14202CBA5C0026132C /* WishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC12202CBA5C0026132C /* WishlistCell.swift */; };
+		D791BC15202CBA5C0026132C /* WishlistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D791BC13202CBA5C0026132C /* WishlistCell.xib */; };
+		D791BC18202CC5C00026132C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D791BC17202CC5C00026132C /* Settings.storyboard */; };
+		D791BC1A202CC5DA0026132C /* AboutUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791BC19202CC5DA0026132C /* AboutUsController.swift */; };
 		D792171A200BC2CC0087559A /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921719200BC2CC0087559A /* NewsController.swift */; };
 		D792171D200BC3860087559A /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D792171B200BC3860087559A /* NewsCell.swift */; };
 		D792171E200BC3860087559A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D792171C200BC3860087559A /* NewsCell.xib */; };
@@ -138,6 +145,14 @@
 		D78D46FB20135EA5005C6561 /* BasketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketController.swift; sourceTree = "<group>"; };
 		D791BC012027B0FC0026132C /* MakeOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeOrderCell.swift; sourceTree = "<group>"; };
 		D791BC022027B0FC0026132C /* MakeOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakeOrderCell.xib; sourceTree = "<group>"; };
+		D791BC072029E6840026132C /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		D791BC092029E6920026132C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D791BC0B202AE5B50026132C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		D791BC12202CBA5C0026132C /* WishlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCell.swift; sourceTree = "<group>"; };
+		D791BC13202CBA5C0026132C /* WishlistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistCell.xib; sourceTree = "<group>"; };
+		D791BC16202CC5700026132C /* ElectrosLab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElectrosLab.entitlements; sourceTree = "<group>"; };
+		D791BC17202CC5C00026132C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D791BC19202CC5DA0026132C /* AboutUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsController.swift; sourceTree = "<group>"; };
 		D7921719200BC2CC0087559A /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		D792171B200BC3860087559A /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		D792171C200BC3860087559A /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -199,6 +214,7 @@
 		D7341EC920279B6300F6FD93 /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				D791BC072029E6840026132C /* SessionManager.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D791BC16202CC5700026132C /* ElectrosLab.entitlements */,
 				D7341EC920279B6300F6FD93 /* Session */,
 				D7341EBD2024C60300F6FD93 /* Managers */,
 				D73EDB7F20136BC900A978FB /* Network */,
@@ -243,6 +260,7 @@
 				D73731821FCC78B5002BBA9C /* Assets.xcassets */,
 				D73EDB782013690100A978FB /* GoogleService-Info.plist */,
 				D73731871FCC78B5002BBA9C /* Info.plist */,
+				D791BC0B202AE5B50026132C /* StorageManager.swift */,
 			);
 			path = ElectrosLab;
 			sourceTree = "<group>";
@@ -256,6 +274,7 @@
 				D73731901FCC7C64002BBA9C /* Storyboards.swift */,
 				D78D46F820135E74005C6561 /* Basket.storyboard */,
 				D73343AC20238B30005E1B46 /* Store.storyboard */,
+				D791BC17202CC5C00026132C /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -365,6 +384,7 @@
 				D7921721200BD02E0087559A /* SettingsController.swift */,
 				D73343AA20238A6C005E1B46 /* CategoryDetailsController.swift */,
 				D7341EB92024583400F6FD93 /* ItemDetailsController.swift */,
+				D791BC19202CC5DA0026132C /* AboutUsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +417,8 @@
 				D7341ED12027AC6900F6FD93 /* CheckoutDetailsCell.xib */,
 				D791BC012027B0FC0026132C /* MakeOrderCell.swift */,
 				D791BC022027B0FC0026132C /* MakeOrderCell.xib */,
+				D791BC12202CBA5C0026132C /* WishlistCell.swift */,
+				D791BC13202CBA5C0026132C /* WishlistCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -407,6 +429,7 @@
 				D73EDB7A2013694200A978FB /* NewsItem.swift */,
 				D73EDB7D20136B7F00A978FB /* CategoryItem.swift */,
 				D7341EB72023A55900F6FD93 /* Item.swift */,
+				D791BC092029E6920026132C /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +503,11 @@
 					D73731771FCC78B5002BBA9C = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -514,12 +542,14 @@
 				D7341EC82024CE8600F6FD93 /* BasketCell.xib in Resources */,
 				D73731831FCC78B5002BBA9C /* Assets.xcassets in Resources */,
 				D73EDB792013690200A978FB /* GoogleService-Info.plist in Resources */,
+				D791BC15202CBA5C0026132C /* WishlistCell.xib in Resources */,
 				D73D75122002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg in Resources */,
 				D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */,
 				D7341ED32027AC6900F6FD93 /* CheckoutDetailsCell.xib in Resources */,
 				D73343B120238E18005E1B46 /* ItemCell.xib in Resources */,
 				D791BC042027B0FC0026132C /* MakeOrderCell.xib in Resources */,
 				D78D46F920135E74005C6561 /* Basket.storyboard in Resources */,
+				D791BC18202CC5C00026132C /* Settings.storyboard in Resources */,
 				D73343AD20238B30005E1B46 /* Store.storyboard in Resources */,
 				D73D751020028EE800DD61BA /* CategoriesCell.xib in Resources */,
 			);
@@ -633,6 +663,7 @@
 				D73EDB7B2013694200A978FB /* NewsItem.swift in Sources */,
 				D7921727200BD0F40087559A /* SettingsCell.swift in Sources */,
 				D724C21B1FCC8D9C009FBEE1 /* LoginView.swift in Sources */,
+				D791BC1A202CC5DA0026132C /* AboutUsController.swift in Sources */,
 				D7341EBA2024583400F6FD93 /* ItemDetailsController.swift in Sources */,
 				D73343B020238E18005E1B46 /* ItemCell.swift in Sources */,
 				D724C2221FCC9228009FBEE1 /* SignupView.swift in Sources */,
@@ -642,6 +673,7 @@
 				D73EDB8120136BDB00A978FB /* FireStoreManager.swift in Sources */,
 				D7341EBF2024C60F00F6FD93 /* UserDefaultsManager.swift in Sources */,
 				D73D75082002872D00DD61BA /* TabbarCoordinator.swift in Sources */,
+				D791BC082029E6840026132C /* SessionManager.swift in Sources */,
 				D73EDB7E20136B7F00A978FB /* CategoryItem.swift in Sources */,
 				D7921722200BD02E0087559A /* SettingsController.swift in Sources */,
 				D724C2201FCC8E73009FBEE1 /* HJFloatingTextfield.swift in Sources */,
@@ -654,15 +686,18 @@
 				D73731A81FCC807E002BBA9C /* Validators.swift in Sources */,
 				D78D46FC20135EA5005C6561 /* BasketController.swift in Sources */,
 				D73731AF1FCC830E002BBA9C /* BaseCoordinator.swift in Sources */,
+				D791BC0A2029E6920026132C /* User.swift in Sources */,
 				D7341EC72024CE8600F6FD93 /* BasketCell.swift in Sources */,
 				D7341ECE2027AC5900F6FD93 /* CheckoutItemCell.swift in Sources */,
 				D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */,
 				D73731BA1FCC8671002BBA9C /* AuthCoordinator.swift in Sources */,
+				D791BC14202CBA5C0026132C /* WishlistCell.swift in Sources */,
 				D73731B81FCC8583002BBA9C /* AuthCoordinatorOutput.swift in Sources */,
 				D73731961FCC7D3E002BBA9C /* Presentable.swift in Sources */,
 				D737317C1FCC78B5002BBA9C /* AppDelegate.swift in Sources */,
 				D73731AC1FCC82DA002BBA9C /* ApplicationCoordinator.swift in Sources */,
 				D73731B21FCC8372002BBA9C /* CoordinatorFactory.swift in Sources */,
+				D791BC0C202AE5B50026132C /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +835,7 @@
 			baseConfigurationReference = D161747433541C773471437E /* Pods-ElectrosLab.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ElectrosLab/ElectrosLab.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGAW4ZB949;
 				INFOPLIST_FILE = ElectrosLab/Info.plist;
@@ -817,6 +853,7 @@
 			baseConfigurationReference = 2B460837EA0435142DDB28C1 /* Pods-ElectrosLab.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ElectrosLab/ElectrosLab.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGAW4ZB949;
 				INFOPLIST_FILE = ElectrosLab/Info.plist;

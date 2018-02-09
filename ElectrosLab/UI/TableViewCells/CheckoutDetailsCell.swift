@@ -21,6 +21,13 @@ class CheckoutDetailsCell: UITableViewCell {
     }
 
     func fillCellWithInfo(total: Float) {
+        if let user = StorageManager.getCurrentUser() {
+            userfullnameLabel.text = "Name: " + user.name!
+            userPhoneNumberLabel.text = user.phoneNumber
+            if let city = user.city, let street = user.street, let building = user.building, let floor = user.floor {
+                userAddressLabel.text = "Address: " + city + ", " + street + ", " + building + ", " + floor
+            }
+        }
         totalLabel.text = "Total: $\(total)"
     }
 

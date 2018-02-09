@@ -28,6 +28,9 @@ final class AppDelegateViewModel: NSObject {
         UIApplication.shared.statusBarStyle = .lightContent
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        UINavigationBar.appearance().barTintColor = UIColor.electrosLabBlue()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = UIColor.white
         return true
     }
     

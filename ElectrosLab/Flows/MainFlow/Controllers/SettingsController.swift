@@ -9,14 +9,21 @@
 import UIKit
 
 protocol SettingsView: BaseView {
-    
 }
 
 class SettingsController: UIViewController, SettingsView {
+    
 
+    var tableValues = [String]()
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if StorageManager.getCurrentUser() != nil {
+            tableValues = ["Edit Profile", "About Us", /*"Find our store",*/ "Logout"]
+        } else {
+            tableValues = ["About Us", /*"Find our store",*/ "Sign In/Sign Up"]
+        }
         setupTableView()
     }
     
@@ -28,30 +35,54 @@ class SettingsController: UIViewController, SettingsView {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    func logoutAction() {
+        UIAlertController.showAlert(with: nil, message: "Are you sure you want to logout?", okayButtonTitle: "Yes", okayButtonCallback: {
+            StorageManager.clearUserData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "logout"), object: nil)
+        }, cancelButtonTitle: "Cancel", cancelButtonCallBack: nil)
+        
+    }
+    
+    func showAboutUs() {
+        let aboutUsController = AboutUsController.controllerInStoryboard(.settings)
+        navigationController?.pushViewController(aboutUsController, animated: true)
+    }
+    
+    func showEditProfileView() {
+        let editProfileView = SignupController.controllerInStoryboard(.auth)
+        editProfileView.isEditingProfile = true
+        navigationController?.pushViewController(editProfileView, animated: true)
+    }
 }
 
 extension SettingsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 3
+        return tableValues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as SettingsCell
-        switch indexPath.row {
-        case 0:
-            cell.setCellTitle(title: "Edit Profile")
-        case 1:
-            cell.setCellTitle(title: "Sign up/ Sign in")
-        case 2:
-            cell.setCellTitle(title: "About us")
-        default:
-            cell.setCellTitle(title: "")
-        }
+        cell.setCellTitle(title: tableValues[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if tableValues[indexPath.row] == "Logout" {
+            self.logoutAction()
+        }
+        if tableValues[indexPath.row] == "Sign In/Sign Up" {
+            StorageManager.clearUserData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "logout"), object: nil)
+        }
+        
+        if tableValues[indexPath.row] == "About Us" {
+            self.showAboutUs()
+        }
+        
+        if tableValues[indexPath.row] == "Edit Profile" {
+            self.showEditProfileView()
+        }
     }
 }

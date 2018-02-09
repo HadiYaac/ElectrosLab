@@ -13,5 +13,6 @@ enum StoryBoards: String {
     case auth = "Auth"
     case basket = "Basket"
     case store = "Store"
+    case settings = "Settings"
     
 }

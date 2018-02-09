@@ -10,6 +10,7 @@ import Foundation
 
 struct ELUserDefaultsManager {
     private static let basketKey = "kBasket"
+    private static let wishListKey = "kWishlist"
     private static let userDefaults = UserDefaults.standard
     private static let jsonEncoder = JSONEncoder()
     private static let jsonDecoder = JSONDecoder()
@@ -28,6 +29,20 @@ struct ELUserDefaultsManager {
         }
     }
     
+    static func addItemToWishlist(item: Item) {
+        if !isItemInWishlist(item: item) {
+            if let wishlist = getWishlistArray() {
+                var newWishlist = wishlist
+                newWishlist.append(item)
+                updateWishlistArray(wishList: newWishlist)
+            } else {
+                var wishList = [Item]()
+                wishList.append(item)
+                updateWishlistArray(wishList: wishList)
+            }
+        }
+    }
+    
     static func removeItemFromBasket(item: Item) {
         if isItemInBasket(item: item) {
             if let basket = getBasketArray() {
@@ -41,6 +56,34 @@ struct ELUserDefaultsManager {
                 }
             }
         }
+    }
+    
+    static func removeItemFromWishlist(item: Item) {
+        if isItemInWishlist(item: item) {
+            if let wishlist = getWishlistArray() {
+                var newWishlist = wishlist
+                let index = newWishlist.index(where: { (neededItem) -> Bool in
+                    return neededItem.id ==  item.id
+                })
+                if let foundIndex = index {
+                    newWishlist.remove(at: foundIndex)
+                    updateWishlistArray(wishList: newWishlist)
+                }
+            }
+        }
+    }
+    
+    
+    private static func isItemInWishlist(item: Item) -> Bool {
+        var isInWishlist = false
+        if let wishlistArray = getWishlistArray() {
+            wishlistArray.forEach({ (wishlistItem) in
+                if wishlistItem.id == item.id {
+                    isInWishlist = true
+                }
+            })
+        }
+        return isInWishlist
     }
     
     private static func isItemInBasket(item: Item) -> Bool {
@@ -66,9 +109,25 @@ struct ELUserDefaultsManager {
         return basketArr
     }
     
+    static func getWishlistArray() -> [Item]? {
+        var wishListArr: [Item]?
+        if let encodedData = userDefaults.data(forKey: wishListKey) {
+            if let wishList = try? jsonDecoder.decode([Item].self, from: encodedData) {
+                wishListArr = wishList
+            }
+        }
+        return wishListArr
+    }
+    
     private static func updateBasketArray(basket: [Item]) {
         if let encodedData = try? jsonEncoder.encode(basket) {
             userDefaults.set(encodedData, forKey: basketKey)
+        }
+    }
+    
+    private static func updateWishlistArray(wishList: [Item]) {
+        if let encodedData = try? jsonEncoder.encode(wishList) {
+            userDefaults.set(encodedData, forKey: wishListKey)
         }
     }
     
@@ -101,4 +160,9 @@ struct ELUserDefaultsManager {
     static func clearBasket() {
         updateBasketArray(basket: [Item]())
     }
+    
+    static func clearWishlist() {
+        updateWishlistArray(wishList: [Item]())
+    }
 }
+

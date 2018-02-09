@@ -503,9 +503,8 @@ extension WKWebsiteDataStore {
 
 extension SVProgressHUD {
     class func showLoader() {
-        UIApplication.shared.beginIgnoringInteractionEvents()
         self.setBackgroundColor(UIColor.init(red: 0.97, green: 0.97, blue: 0.97, alpha: 1))
-        self.setForegroundColor(UIColor.blue)
+        self.setForegroundColor(UIColor.electrosLabBlue())
         self.setDefaultMaskType(.clear)
         self.setRingRadius(4)
         self.setContainerView(UIApplication.shared.keyWindow?.rootViewController?.view)
@@ -513,9 +512,16 @@ extension SVProgressHUD {
     }
     
     class func dismissLoader() {
-        UIApplication.shared.endIgnoringInteractionEvents()
         self.dismiss()
     }
+    
+    class func showSuccessStatus(status: String) {
+        self.setBackgroundColor(UIColor.electrosLabBlue())
+        self.setForegroundColor(UIColor.white)
+        self.setMinimumDismissTimeInterval(1)
+        self.showSuccess(withStatus: status)
+    }
+    
 }
 
 extension Bundle {
