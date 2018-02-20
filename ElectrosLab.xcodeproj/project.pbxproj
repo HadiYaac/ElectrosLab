@@ -80,6 +80,8 @@
 		D7921722200BD02E0087559A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921721200BD02E0087559A /* SettingsController.swift */; };
 		D7921727200BD0F40087559A /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7921725200BD0F40087559A /* SettingsCell.swift */; };
 		D7921728200BD0F40087559A /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7921726200BD0F40087559A /* SettingsCell.xib */; };
+		D7F99EBB203C9DD500A50D0F /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F99EBA203C9DD500A50D0F /* 1024.png */; };
+		D7F99EBD203CADD500A50D0F /* UIBarBtn+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F99EBC203CADD500A50D0F /* UIBarBtn+Badge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,8 @@
 		D7921721200BD02E0087559A /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D7921725200BD0F40087559A /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		D7921726200BD0F40087559A /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		D7F99EBA203C9DD500A50D0F /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
+		D7F99EBC203CADD500A50D0F /* UIBarBtn+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarBtn+Badge.swift"; sourceTree = "<group>"; };
 		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -240,6 +244,7 @@
 		D737317A1FCC78B5002BBA9C /* ElectrosLab */ = {
 			isa = PBXGroup;
 			children = (
+				D7F99EBA203C9DD500A50D0F /* 1024.png */,
 				D791BC16202CC5700026132C /* ElectrosLab.entitlements */,
 				D7341EC920279B6300F6FD93 /* Session */,
 				D7341EBD2024C60300F6FD93 /* Managers */,
@@ -302,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				D737319E1FCC7E46002BBA9C /* Extensions.swift */,
+				D7F99EBC203CADD500A50D0F /* UIBarBtn+Badge.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				D73EDB792013690200A978FB /* GoogleService-Info.plist in Resources */,
 				D791BC15202CBA5C0026132C /* WishlistCell.xib in Resources */,
 				D73D75122002906D00DD61BA /* Raspberry-Pi-2-Bare-FL.jpg in Resources */,
+				D7F99EBB203C9DD500A50D0F /* 1024.png in Resources */,
 				D73731811FCC78B5002BBA9C /* Main.storyboard in Resources */,
 				D7341ED32027AC6900F6FD93 /* CheckoutDetailsCell.xib in Resources */,
 				D73343B120238E18005E1B46 /* ItemCell.xib in Resources */,
@@ -658,6 +665,7 @@
 				D73343AB20238A6C005E1B46 /* CategoryDetailsController.swift in Sources */,
 				D737319D1FCC7E04002BBA9C /* RouterImp.swift in Sources */,
 				D73D75062002818900DD61BA /* TabbarController.swift in Sources */,
+				D7F99EBD203CADD500A50D0F /* UIBarBtn+Badge.swift in Sources */,
 				D73731911FCC7C64002BBA9C /* Storyboards.swift in Sources */,
 				D737317E1FCC78B5002BBA9C /* ViewController.swift in Sources */,
 				D73EDB7B2013694200A978FB /* NewsItem.swift in Sources */,

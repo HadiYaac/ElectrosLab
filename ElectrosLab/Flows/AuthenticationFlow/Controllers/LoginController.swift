@@ -21,6 +21,7 @@ class LoginController: UIViewController, LoginView {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var guestButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,38 @@ class LoginController: UIViewController, LoginView {
             phoneNumberTxtfield.text = "hu@me.com"
             passwordTxtfield.text = "123456"
         #endif
+        
+        forgotPasswordButton.setTitleColor(UIColor.white, for: .normal)
+        forgotPasswordButton.setTitle("Forgot Password", for: .normal)
     }
     
+    @IBAction func forgotPasswordAction(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "", message: "By entering your email address and pressing submit, you'll get an email to help you reset your password", preferredStyle: .alert)
+        alertController.addTextField { (textfield) in
+            textfield.placeholder = "Email Address"
+            textfield.keyboardType = .emailAddress
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (action) in
+            SVProgressHUD.showLoader()
+            if let email = alertController.textFields?.first?.text {
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                    SVProgressHUD.dismiss()
+                    if let error = error {
+                        UIAlertController.showAlert(with: "", message: error.localizedDescription)
+                        
+                    } else {
+                        UIAlertController.showAlert(with: "", message: "Please check your email inbox to proceed with resetting your password.")
+                    }
+                })
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            
+        }
+        alertController.addAction(submitAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true

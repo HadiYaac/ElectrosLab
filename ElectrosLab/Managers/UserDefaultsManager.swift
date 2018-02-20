@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct ELUserDefaultsManager {
     private static let basketKey = "kBasket"
@@ -14,16 +15,19 @@ struct ELUserDefaultsManager {
     private static let userDefaults = UserDefaults.standard
     private static let jsonEncoder = JSONEncoder()
     private static let jsonDecoder = JSONDecoder()
+    static let subject = PublishSubject<Int>()
     
     static func addItemToBasket(item: Item) {
         if !isItemInBasket(item: item) {
             if let basket = getBasketArray() {
                 var newBasket = basket
                 newBasket.append(item)
+                subject.onNext(newBasket.count)
                 updateBasketArray(basket: newBasket)
             } else {
                 var basket = [Item]()
                 basket.append(item)
+                subject.onNext(basket.count)
                 updateBasketArray(basket: basket)
             }
         }
@@ -52,6 +56,7 @@ struct ELUserDefaultsManager {
                 })
                 if let foundIndex = index {
                     newBasket.remove(at: foundIndex)
+                    subject.onNext(newBasket.count)
                     updateBasketArray(basket: newBasket)
                 }
             }

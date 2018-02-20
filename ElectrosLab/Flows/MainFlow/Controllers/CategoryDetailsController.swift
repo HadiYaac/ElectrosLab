@@ -13,6 +13,10 @@ class CategoryDetailsController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var category: CategoryItem?
     var tableValues = [Item]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearching: Bool = false
+    var searchResults = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,7 @@ class CategoryDetailsController: UIViewController {
         if let categoryId = category?.id {
             fetchItems(categoryId: categoryId)
         }
+        addSearchBar()
     }
     
     func setupTableView() {
@@ -32,6 +37,32 @@ class CategoryDetailsController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func addSearchBar() {
+        searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor.electrosLabBlue()
+        
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.searchController = searchController
+            self.navigationItem.hidesSearchBarWhenScrolling = false
+            //navigationItem.title = "Categories"
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+            navigationController?.navigationBar.barTintColor = UIColor.electrosLabBlue()
+            self.searchController.dimsBackgroundDuringPresentation = false
+            self.searchController.hidesNavigationBarDuringPresentation = false
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search products", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        } else {
+            self.searchController.dimsBackgroundDuringPresentation = false
+            self.searchController.hidesNavigationBarDuringPresentation = false
+            navigationItem.titleView = searchController.searchBar
+        }
+        
+
+        
     }
     
     func fetchItems(categoryId: String) {
@@ -57,23 +88,36 @@ class CategoryDetailsController: UIViewController {
 
 extension CategoryDetailsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return self.searchResults.count
+        }
         return self.tableValues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ItemCell
-        let item = self.tableValues[indexPath.row]
-        cell.setCell(with: item)
+        if isSearching {
+            let item = self.searchResults[indexPath.row]
+            cell.setCell(with: item)
+        } else {
+            let item = self.tableValues[indexPath.row]
+            cell.setCell(with: item)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let item = self.tableValues[indexPath.row]
+        var item: Item?
+        if isSearching {
+            item = self.searchResults[indexPath.row]
+        } else {
+            item = self.tableValues[indexPath.row]
+        }
         if StorageManager.getCurrentUser() == nil {
             UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
         } else {
-            proceedToItemDetails(item: item)
+            proceedToItemDetails(item: item!)
         }
     }
 }
@@ -84,3 +128,52 @@ extension String {
     }
 }
 
+extension CategoryDetailsController: UISearchBarDelegate {
+    func filterContentForSearchText(searchText: String) {
+        searchResults = self.tableValues.filter({ (product) -> Bool in
+            return product.name!.localizedStandardContains(searchText)
+        })
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 0 {
+            isSearching = true
+            filterContentForSearchText(searchText: searchText)
+            tableView.reloadData()
+        } else {
+            isSearching = false
+            tableView.reloadData()
+        }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchBar.resignFirstResponder()
+        searchBar.clear()
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = true
+        view.endEditing(true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let count = searchBar.text?.count {
+            if count == 0 {
+                isSearching = false
+                tableView.reloadData()
+            } else {
+                isSearching = true
+                tableView.reloadData()
+            }
+        }
+    }
+    
+}
+
+
+extension UISearchBar {
+    func clear() {
+        self.text = nil
+    }
+}

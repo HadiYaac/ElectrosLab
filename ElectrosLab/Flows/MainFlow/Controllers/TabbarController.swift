@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol TabbarView: BaseView {
     var didPressBasket: ((UINavigationController) -> Void)? { get set }
@@ -15,6 +16,8 @@ protocol TabbarView: BaseView {
 class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarView {
     var didPressBasket: ((UINavigationController) -> Void)?
     var emptyWishListBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
+    var basketBarButton: UIBarButtonItem?
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,25 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         self.delegate = self
         emptyWishListBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
         self.selectedIndex = 1
+
+        ELUserDefaultsManager.subject.subscribe(onNext: { (count) in
+            printD("updated count: \(count)")
+            if count > 0 {
+                self.basketBarButton?.addBadge(number: count)
+            } else {
+                self.basketBarButton?.removeBadge()
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let count = ELUserDefaultsManager.getBasketArray()?.count {
+            printD("initial count: \(count)")
+            if count > 0 {
+                basketBarButton?.addBadge(number: count)
+            }
+        }
     }
     
     @objc func emptyWishList() {
@@ -48,9 +70,9 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
-        let basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: #selector(basketPressed))
-        basketBarButton.image = #imageLiteral(resourceName: "basket")
-        basketBarButton.title = nil
+        basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: #selector(basketPressed))
+        basketBarButton?.image = #imageLiteral(resourceName: "basket")
+        basketBarButton?.title = nil
         
         self.navigationItem.rightBarButtonItem = basketBarButton
     }
@@ -86,6 +108,9 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
 extension TabbarController {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if viewController.isKind(of: WishlistController.self) {
+            if (navigationItem.rightBarButtonItems?.count)! > 1 {
+                navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
             navigationItem.rightBarButtonItems?.append(emptyWishListBarButton)
         } else {
             if (navigationItem.rightBarButtonItems?.count)! > 1 {

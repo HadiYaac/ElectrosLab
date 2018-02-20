@@ -15,6 +15,7 @@ class ItemDetailsController: UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     
     @IBOutlet weak var stackView: UIStackView!
@@ -36,8 +37,9 @@ class ItemDetailsController: UIViewController {
     }
 
     func fillViewFromItem(item: Item) {
-        if let detailsText = item.name {
+        if let detailsText = item.name, let price = item.price {
             itemDescriptionLabel.text = detailsText
+            priceLabel.text = "$\(price)"
         }
         if let picUrl = item.picUrl {
             let url = URL(string: picUrl)
@@ -64,10 +66,12 @@ class ItemDetailsController: UIViewController {
     @IBAction func leftButtonAction(_ sender: UIButton) {
         ELUserDefaultsManager.addItemToBasket(item: selectedItem!)
         SVProgressHUD.showSuccessStatus(status: "Item added to basket")
+        navigationController?.popViewController(animated: true)
     }
     /// Add item to wishlist
     @IBAction func rightButtonAction(_ sender: UIButton) {
         ELUserDefaultsManager.addItemToWishlist(item: selectedItem!)
         SVProgressHUD.showSuccessStatus(status: "Item added to wishlist")
+        navigationController?.popViewController(animated: true)
     }
 }
