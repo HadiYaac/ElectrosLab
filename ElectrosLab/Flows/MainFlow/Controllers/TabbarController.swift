@@ -26,7 +26,6 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         title = "ElectroSLab"
         self.delegate = self
         emptyWishListBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
-        self.selectedIndex = 1
 
         ELUserDefaultsManager.subject.subscribe(onNext: { (count) in
             printD("updated count: \(count)")

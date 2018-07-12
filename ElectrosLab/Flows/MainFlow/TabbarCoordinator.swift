@@ -22,13 +22,10 @@ final class TabbarCoordinator: BaseCoordinator {
     
     override func start() {
         tabbarView.didPressBasket = startBasketFlow()
-//        tabbarView.onViewDidLoad = runMeasureFlow()
-//        tabbarView.onMeasureFlowSelect = runMeasureFlow()
     }
     
     override func startWithController(_ controller: SelectedController?) {
-//        tabbarView.onViewDidLoad = runMeasureFlow(controller: controller)
-//        tabbarView.onMeasureFlowSelect = runMeasureFlow(controller: controller)
+
     }
     
     private func startBasketFlow() -> ((UINavigationController) -> Void) {

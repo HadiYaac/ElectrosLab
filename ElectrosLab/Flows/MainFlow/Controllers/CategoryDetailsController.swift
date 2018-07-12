@@ -109,13 +109,16 @@ extension CategoryDetailsController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         var item: Item?
+        view.endEditing(true)
         if isSearching {
             item = self.searchResults[indexPath.row]
         } else {
             item = self.tableValues[indexPath.row]
         }
         if StorageManager.getCurrentUser() == nil {
-            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+            if !isSearching {
+                UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+            }
         } else {
             proceedToItemDetails(item: item!)
         }
@@ -133,6 +136,10 @@ extension CategoryDetailsController: UISearchBarDelegate {
         searchResults = self.tableValues.filter({ (product) -> Bool in
             return product.name!.localizedStandardContains(searchText)
         })
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

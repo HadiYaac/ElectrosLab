@@ -94,13 +94,12 @@ final class FireStoreManager {
     
     static func uploadNewOrder(orderItems: [Item], completion: @escaping (_ error: Error?, _ success: Bool) -> ()) {
         let db = Firestore.firestore()
-        let userId = Auth.auth().currentUser?.uid
         var orderDictionary = [String : Any]()
-        orderDictionary["user_id"] = userId!
+        orderDictionary["user"] = StorageManager.getCurrentUser()!.getUserDictionary()
         orderDictionary["total"] = getTotalPriceString(items: orderItems)
         var itemsDictionary = [[String : Any]]()
         orderItems.forEach { (item) in
-            let itemDic = ["item_id": item.id!, "count": item.quantity] as [String : Any]
+            let itemDic = item.itemDictionary()
             itemsDictionary.append(itemDic)
         }
         orderDictionary["items"] = itemsDictionary

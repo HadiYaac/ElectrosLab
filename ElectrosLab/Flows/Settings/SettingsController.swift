@@ -20,9 +20,9 @@ class SettingsController: UIViewController, SettingsView {
     override func viewDidLoad() {
         super.viewDidLoad()
         if StorageManager.getCurrentUser() != nil {
-            tableValues = ["Edit Profile", "About Us", /*"Find our store",*/ "Logout"]
+            tableValues = ["Edit Profile", "About Us", "Find our store", "Logout"]
         } else {
-            tableValues = ["About Us", /*"Find our store",*/ "Sign In/Sign Up"]
+            tableValues = ["About Us", "Find our store", "Sign In/Sign Up"]
         }
         setupTableView()
     }
@@ -54,6 +54,11 @@ class SettingsController: UIViewController, SettingsView {
         editProfileView.isEditingProfile = true
         navigationController?.pushViewController(editProfileView, animated: true)
     }
+    
+    func showMapView() {
+        let locationController = LocationController.controllerInStoryboard(.settings)
+        navigationController?.pushViewController(locationController, animated: true)
+    }
 }
 
 extension SettingsController: UITableViewDataSource, UITableViewDelegate {
@@ -83,6 +88,10 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
         
         if tableValues[indexPath.row] == "Edit Profile" {
             self.showEditProfileView()
+        }
+        
+        if tableValues[indexPath.row] == "Find our store" {
+            showMapView()
         }
     }
 }

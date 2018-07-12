@@ -31,8 +31,7 @@ struct StorageManager {
             return nil
         }
     }
-    
-    static func saveCurrentUser(user: ELUser) {
+        static func saveCurrentUser(user: ELUser) {
         currentUser = user
         let userData = try? jsonEncoder.encode(user)
         userDefaults.set(userData, forKey: StorageKeys.user.rawValue)

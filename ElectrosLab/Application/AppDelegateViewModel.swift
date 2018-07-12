@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import Firebase
 import IQKeyboardManagerSwift
+import GoogleMaps
 
 final class AppDelegateViewModel: NSObject {
     var window: UIWindow?
@@ -24,6 +25,7 @@ final class AppDelegateViewModel: NSObject {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        GMSServices.provideAPIKey("AIzaSyAc1M8vz0ZjPFOVjzy--QDiG1gi9kiVE4g")
         applicationCoordinator?.start()
         UIApplication.shared.statusBarStyle = .lightContent
         IQKeyboardManager.sharedManager().enable = true

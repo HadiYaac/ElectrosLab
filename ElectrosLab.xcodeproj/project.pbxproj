@@ -82,6 +82,7 @@
 		D7921728200BD0F40087559A /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7921726200BD0F40087559A /* SettingsCell.xib */; };
 		D7F99EBB203C9DD500A50D0F /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F99EBA203C9DD500A50D0F /* 1024.png */; };
 		D7F99EBD203CADD500A50D0F /* UIBarBtn+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F99EBC203CADD500A50D0F /* UIBarBtn+Badge.swift */; };
+		D7F99EC0203D552B00A50D0F /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F99EBF203D552B00A50D0F /* LocationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		D7921726200BD0F40087559A /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		D7F99EBA203C9DD500A50D0F /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		D7F99EBC203CADD500A50D0F /* UIBarBtn+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarBtn+Badge.swift"; sourceTree = "<group>"; };
+		D7F99EBF203D552B00A50D0F /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		FBA5943ACBA7CDE419249BD2 /* Pods_ElectrosLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectrosLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -354,6 +356,7 @@
 		D73731B51FCC8552002BBA9C /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				D7F99EBE203D551600A50D0F /* Settings */,
 				D78D46FA20135E85005C6561 /* BasketFlow */,
 				D73D75032002816400DD61BA /* MainFlow */,
 				D73731B61FCC855C002BBA9C /* AuthenticationFlow */,
@@ -387,10 +390,8 @@
 				D73D750920028E1E00DD61BA /* CategoriesController.swift */,
 				D7921719200BC2CC0087559A /* NewsController.swift */,
 				D792171F200BCE0B0087559A /* WishlistController.swift */,
-				D7921721200BD02E0087559A /* SettingsController.swift */,
 				D73343AA20238A6C005E1B46 /* CategoryDetailsController.swift */,
 				D7341EB92024583400F6FD93 /* ItemDetailsController.swift */,
-				D791BC19202CC5DA0026132C /* AboutUsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -463,6 +464,16 @@
 				D7341ECA20279E4500F6FD93 /* CheckoutController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7F99EBE203D551600A50D0F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D7921721200BD02E0087559A /* SettingsController.swift */,
+				D7F99EBF203D552B00A50D0F /* LocationController.swift */,
+				D791BC19202CC5DA0026132C /* AboutUsController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FCC665829D0E8037B61B5011 /* Frameworks */ = {
@@ -571,9 +582,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ElectrosLab/Pods-ElectrosLab-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -699,6 +713,7 @@
 				D7341ECE2027AC5900F6FD93 /* CheckoutItemCell.swift in Sources */,
 				D73731A31FCC7EE5002BBA9C /* AppContent.swift in Sources */,
 				D73731BA1FCC8671002BBA9C /* AuthCoordinator.swift in Sources */,
+				D7F99EC0203D552B00A50D0F /* LocationController.swift in Sources */,
 				D791BC14202CBA5C0026132C /* WishlistCell.swift in Sources */,
 				D73731B81FCC8583002BBA9C /* AuthCoordinatorOutput.swift in Sources */,
 				D73731961FCC7D3E002BBA9C /* Presentable.swift in Sources */,
