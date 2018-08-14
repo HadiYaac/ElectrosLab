@@ -43,6 +43,8 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
             printD("initial count: \(count)")
             if count > 0 {
                 basketBarButton?.addBadge(number: count)
+            } else {
+                self.basketBarButton?.removeBadge()
             }
         }
     }

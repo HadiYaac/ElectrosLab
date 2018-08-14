@@ -16,7 +16,8 @@ target 'ElectrosLab' do
 	pod 'SVProgressHUD'
     	pod 'IQKeyboardManagerSwift'
   	pod 'GoogleMaps'
-
+	pod 'Firebase/Messaging'
+	pod 'SKPhotoBrowser'
 
 
 end

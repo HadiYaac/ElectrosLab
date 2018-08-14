@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import SVProgressHUD
+import SKPhotoBrowser
 
 class ItemDetailsController: UIViewController {
 
@@ -34,6 +35,34 @@ class ItemDetailsController: UIViewController {
             stackView.removeArrangedSubview(rightButton)
             rightButton.removeFromSuperview()
         }
+        addTapGestureToImageView()
+        registerFor3DTouch()
+    }
+    
+    private func registerFor3DTouch() {
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: self.view)
+        }
+    }
+    
+    
+    private func addTapGestureToImageView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showImages))
+        itemImageView.isUserInteractionEnabled = true
+        tapGesture.numberOfTapsRequired = 1
+        itemImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func showImages() {
+        guard let image = itemImageView.image else { return }
+        var images = [SKPhoto]()
+        let photo = SKPhoto.photoWithImage(image)
+        images.append(photo)
+        let browser = SKPhotoBrowser(photos: [photo], initialPageIndex: 0)
+        SKPhotoBrowserOptions.bounceAnimation = true
+
+        present(browser, animated: true, completion: nil)
+        
     }
 
     func fillViewFromItem(item: Item) {
@@ -74,4 +103,27 @@ class ItemDetailsController: UIViewController {
         SVProgressHUD.showSuccessStatus(status: "Item added to wishlist")
         navigationController?.popViewController(animated: true)
     }
+}
+
+extension ItemDetailsController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let convertedPoint = view.convert(location, to: itemImageView)
+        if itemImageView.bounds.contains(convertedPoint) {
+            guard let image = itemImageView.image else { return nil }
+            var images = [SKPhoto]()
+            let photo = SKPhoto.photoWithImage(image)
+            images.append(photo)
+            let browser = SKPhotoBrowser(photos: [photo], initialPageIndex: 0)
+            SKPhotoBrowserOptions.bounceAnimation = true
+            return browser
+        } else {
+            return nil
+        }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        present(viewControllerToCommit, animated: true, completion: nil)
+    }
+    
+    
 }

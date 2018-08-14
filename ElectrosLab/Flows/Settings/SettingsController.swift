@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol SettingsView: BaseView {
 }
@@ -15,14 +16,16 @@ class SettingsController: UIViewController, SettingsView {
     
 
     var tableValues = [String]()
+    private let whatsAppURL = URL(string: "https://api.whatsapp.com/send?phone=96181679391")
+    private let websiteURL = URL(string: "http://www.electroslab.com")
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if StorageManager.getCurrentUser() != nil {
-            tableValues = ["Edit Profile", "About Us", "Find our store", "Logout"]
+            tableValues = ["Edit Profile", "About Us", "Find our store", "Contact Us", "Logout"]
         } else {
-            tableValues = ["About Us", "Find our store", "Sign In/Sign Up"]
+            tableValues = ["About Us", "Find our store", "Contact Us", "Sign In/Sign Up"]
         }
         setupTableView()
     }
@@ -59,9 +62,62 @@ class SettingsController: UIViewController, SettingsView {
         let locationController = LocationController.controllerInStoryboard(.settings)
         navigationController?.pushViewController(locationController, animated: true)
     }
+    
+    func showContactUsActionSheet() {
+        let actionSheet = UIAlertController(title: "Contact Us", message: "You can contact us using one of the following methods", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(cancelAction)
+        
+        let callAction = UIAlertAction(title: "Call Us", style: .default) { [weak self] (action) in
+            self?.callUs()
+        }
+        actionSheet.addAction(callAction)
+        
+        let whatsAppAction = UIAlertAction(title: "WhatsApp", style: .default) { [weak self] (action) in
+            self?.openWhatsApp()
+        }
+        if appCanOpenWhatsApp() {
+            actionSheet.addAction(whatsAppAction)
+        }
+        
+        let websiteAction = UIAlertAction(title: "Visit our Website", style: .default) { [weak self] (action) in
+            self?.openWebsite()
+        }
+        actionSheet.addAction(websiteAction)
+        
+        let facebookAction = UIAlertAction(title: "Facebook", style: .default) { [weak self] (action) in
+            self?.openFacebook()
+        }
+        actionSheet.addAction(facebookAction)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func callUs() {
+        guard let number = URL(string: "tel://" + "0096181679391") else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    private func openWhatsApp() {
+        UIApplication.shared.open(whatsAppURL!, options: [:], completionHandler: nil)
+    }
+    
+    private func openWebsite() {
+        let safariController = SFSafariViewController(url: websiteURL!)
+        present(safariController, animated: true, completion: nil)
+    }
+    
+    private func openFacebook() {
+        UIApplication.tryURL(urls: ["fb://profile?id=ElectrosLab", // App
+            "http://www.facebook.com/ElectrosLab"] )
+    }
+    
+    private func appCanOpenWhatsApp() -> Bool {
+        return UIApplication.shared.canOpenURL(whatsAppURL!)
+    }
 }
 
 extension SettingsController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableValues.count
     }
@@ -92,6 +148,21 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
         
         if tableValues[indexPath.row] == "Find our store" {
             showMapView()
+        }
+        if tableValues[indexPath.row] == "Contact Us" {
+            showContactUsActionSheet()
+        }
+    }
+}
+
+extension UIApplication {
+    class func tryURL(urls: [String]) {
+        let application = UIApplication.shared
+        for url in urls {
+            if application.canOpenURL(URL(string: url)!) {
+                application.openURL(URL(string: url)!)
+                return
+            }
         }
     }
 }

@@ -164,6 +164,7 @@ struct ELUserDefaultsManager {
     
     static func clearBasket() {
         updateBasketArray(basket: [Item]())
+        subject.onNext(0)
     }
     
     static func clearWishlist() {

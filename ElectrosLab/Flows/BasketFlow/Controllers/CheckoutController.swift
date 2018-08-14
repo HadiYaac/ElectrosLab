@@ -46,16 +46,43 @@ class CheckoutController: UIViewController {
     func makeOrderRequest() {
         printD("made order")
         SVProgressHUD.showLoader()
-        FireStoreManager.uploadNewOrder(orderItems: self.tableValues) { (error, success) in
+        FireStoreManager.uploadNewOrder(orderItems: self.tableValues) { [weak self] (error, success) in
             SVProgressHUD.dismiss()
             if let error = error {
                 UIAlertController.showAlert(with: "", message: error.localizedDescription)
             } else {
                 ELUserDefaultsManager.clearBasket()
-                self.navigationController?.popToRootViewController(animated: true)
+                self?.navigationController?.popToRootViewController(animated: true)
                 UIAlertController.showAlert(with: "Success", message: "Your order has been requested. Thank you")
+                self?.sendNotificationToAdmin()
             }
         }
+    }
+    
+    private func sendNotificationToAdmin() {
+
+            let url = URL(string: "https://fcm.googleapis.com/fcm/send")
+            var request = URLRequest(url: url!)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("key=AAAA9vUSgaw:APA91bHTxtP-3OQ5FMAA17nqz8f1Xj4gR8ekEgYQ6ezFTo2yOMigYd11GT7MVtZsHrX5B8aon5O78dkfPsNPXeNIMtrtwtfLqQbnQ0Ynro7j500ggvCZDSi5tldQX06bjmt9s7XQY8Dy", forHTTPHeaderField: "Authorization")
+            request.httpMethod = "POST"
+            let bodyString = """
+            {
+            "to":"/topics/admin",
+            "notification": {
+            "title" : "New Order",
+            "body" : "A new order was submitted by \(StorageManager.getCurrentUser()!.name!)",
+            "sound" : "default",
+            "badge" : "1"
+            }
+            }
+            """
+            request.httpBody = bodyString.data(using: .utf8)
+            SVProgressHUD.showLoader()
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                SVProgressHUD.dismiss()
+            }
+            task.resume()
     }
 }
 
