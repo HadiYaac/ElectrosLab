@@ -94,11 +94,11 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         
         categories.title = "Categories"
         categories.image = #imageLiteral(resourceName: "list")
-        news.title = "News"
+        news.title = "User"
         news.image = #imageLiteral(resourceName: "news")
         wishList.title = "Wishlist"
         wishList.image = #imageLiteral(resourceName: "star")
-        settings.title = "Settings"
+        settings.title = "More"
         settings.image = #imageLiteral(resourceName: "settingsGear")
         tabBar.tintColor = UIColor.electrosLabBlue()
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEF-ml-V0v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEF-ml-V0v">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
         <!--Item 2-->
         <scene sceneID="S2O-fR-Sl1">
             <objects>
-                <viewController id="hQI-Xe-SZg" customClass="NewsController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hQI-Xe-SZg" customClass="UserController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LDr-i4-bRA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="WAY-iy-ldB"/>
                     <connections>
-                        <outlet property="tableView" destination="7Nv-m9-9Rs" id="PSC-ej-UoO"/>
+                        <outlet property="tableView" destination="7Nv-m9-9Rs" id="7RX-ga-IhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6a-92-daQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

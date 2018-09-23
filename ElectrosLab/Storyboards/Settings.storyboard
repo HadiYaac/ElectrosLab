@@ -10,6 +10,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Notifications Controller-->
+        <scene sceneID="Ocd-gV-rXa">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsController" id="ud1-uq-LQU" customClass="NotificationsController" customModule="ElectrosLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YI8-ym-8lP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dL5-q9-0wm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D4e-Tu-Usu" firstAttribute="bottom" secondItem="dL5-q9-0wm" secondAttribute="bottom" id="TWl-Om-dif"/>
+                            <constraint firstItem="dL5-q9-0wm" firstAttribute="top" secondItem="D4e-Tu-Usu" secondAttribute="top" id="Ubc-aG-fGj"/>
+                            <constraint firstItem="D4e-Tu-Usu" firstAttribute="trailing" secondItem="dL5-q9-0wm" secondAttribute="trailing" id="VHW-ad-C36"/>
+                            <constraint firstItem="dL5-q9-0wm" firstAttribute="leading" secondItem="D4e-Tu-Usu" secondAttribute="leading" id="nBs-4X-HXg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D4e-Tu-Usu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDN-WY-oQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1040" y="138"/>
+        </scene>
         <!--About Us Controller-->
         <scene sceneID="v21-do-KDH">
             <objects>

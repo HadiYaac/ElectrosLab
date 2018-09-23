@@ -18,7 +18,7 @@ class ItemCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setCell(with item: Item) {
+    func setCell(with item: Item, showQuanitity: Bool = false) {
         itemImageView.image = #imageLiteral(resourceName: "Raspberry-Pi-2-Bare-FL.jpg")
         if let name = item.name {
             itemDetailsLabel.text = name
@@ -26,6 +26,13 @@ class ItemCell: UITableViewCell {
         if let price = item.price {
             var priceString = "\(price)"
             priceString.addDollarSign()
+            itemPriceLabel.text = priceString
+        }
+        
+        if showQuanitity, let price = item.price {
+            var priceString = "\(price)"
+            priceString.addDollarSign()
+            priceString = priceString + " (Qty: \(item.quantity))"
             itemPriceLabel.text = priceString
         }
         

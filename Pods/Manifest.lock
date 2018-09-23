@@ -79,6 +79,9 @@ PODS:
     - gRPC-Core (= 1.8.6)
     - gRPC-RxLibrary (= 1.8.6)
   - GTMSessionFetcher/Core (1.1.13)
+  - ImageSlideshow (1.6.1):
+    - ImageSlideshow/Core (= 1.6.1)
+  - ImageSlideshow/Core (1.6.1)
   - IQKeyboardManagerSwift (5.0.7)
   - Kingfisher (4.6.1)
   - leveldb-library (1.20)
@@ -100,6 +103,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - GoogleMaps
+  - ImageSlideshow (~> 1.6)
   - IQKeyboardManagerSwift
   - Kingfisher (~> 4.0)
   - RxCocoa (~> 4.0)
@@ -124,6 +128,7 @@ SPEC REPOS:
     - gRPC-ProtoRPC
     - gRPC-RxLibrary
     - GTMSessionFetcher
+    - ImageSlideshow
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
@@ -150,6 +155,7 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: 7f3da3b3a90ae851f774c4eec138a9428d54791b
   gRPC-RxLibrary: c1a5f74a2a54022fc386e09fcdd76fc8febd73aa
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
   IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -160,6 +166,6 @@ SPEC CHECKSUMS:
   SKPhotoBrowser: c20c1da34d737b4e3e101feead6c8dd92ebf860a
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: bd4b848a277b42e4d3d88cd858a33511dafce6ea
+PODFILE CHECKSUM: 4d76016d001456360dead8fc3b29dae27b88cf84
 
 COCOAPODS: 1.5.3

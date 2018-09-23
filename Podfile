@@ -18,6 +18,7 @@ target 'ElectrosLab' do
   	pod 'GoogleMaps'
 	pod 'Firebase/Messaging'
 	pod 'SKPhotoBrowser'
+	pod 'ImageSlideshow', '~> 1.6'
 
 
 end

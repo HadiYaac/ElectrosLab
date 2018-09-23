@@ -9,20 +9,61 @@
 import UIKit
 import SVProgressHUD
 import FirebaseFirestore
+import ImageSlideshow
 
 protocol CategoriesView: BaseView {
-  //  var didSelectCategory:(() -> CategoryItem?) { get set }
 }
 
 class CategoriesController: UIViewController, CategoriesView {
 
     @IBOutlet weak var tableView: UITableView!
     var tableValues = [CategoryItem]()
+    var imageSlideShow: ImageSlideshow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImageSlideShowView()
         setupTableView()
         fetchCategories()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        imageSlideShow.addGestureRecognizer(gestureRecognizer)
+        
+    }
+    
+    @objc func didTap() {
+        imageSlideShow.presentFullScreenController(from: self)
+    }
+    
+    
+    /*
+     slideshow.setImageInputs([
+     ImageSource(image: UIImage(named: "myImage"))!,
+     ImageSource(image: UIImage(named: "myImage2"))!,
+     AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080"),
+     KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080"),
+     ParseSource(file: PFFile(name:"image.jpg", data:data))
+     ])
+     */
+    private func setupImageSlideShowView() {
+        imageSlideShow = ImageSlideshow(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
+        imageSlideShow.circular = true
+        imageSlideShow.slideshowInterval = 2.0
+        imageSlideShow.setImageInputs([
+            ImageSource(image: UIImage.init(named: "1.jpg")!),
+            ImageSource(image: UIImage.init(named: "2.jpeg")!),
+            ImageSource(image: UIImage.init(named: "3.jpeg")!),
+            ImageSource(image: UIImage.init(named: "4.jpeg")!),
+            ImageSource(image: UIImage.init(named: "5.jpeg")!),
+            ImageSource(image: UIImage.init(named: "6.jpeg")!),
+            ImageSource(image: UIImage.init(named: "7.jpeg")!),
+            ImageSource(image: UIImage.init(named: "8.jpeg")!),
+            ImageSource(image: UIImage.init(named: "9.jpeg")!),
+            ImageSource(image: UIImage.init(named: "10.jpeg")!),
+            ImageSource(image: UIImage.init(named: "11.jpeg")!)
+            ])
+        imageSlideShow.contentScaleMode = .scaleAspectFill
+        imageSlideShow.zoomEnabled = true
     }
     
     func setupTableView() {
@@ -30,6 +71,7 @@ class CategoriesController: UIViewController, CategoriesView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = imageSlideShow
     }
     
     func fetchCategories() {

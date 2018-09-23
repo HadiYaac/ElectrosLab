@@ -25,6 +25,15 @@ struct Item: Codable {
         self.id = id
     }
     
+    init(from dictionary: [String: Any]) {
+        name = dictionary["name"] as? String
+        categoryId = dictionary["category_id"] as? String
+        picUrl = dictionary["pic_url"] as? String
+        price = dictionary["price"] as? Float
+        quantity = dictionary["count"] as! Int
+        self.id = dictionary["item_id"] as? String
+    }
+    
     func itemDictionary() -> [String : Any] {
         var itemDictionary = [String: Any]()
         itemDictionary[APIKeys.item_id.rawValue] = self.id
@@ -52,5 +61,9 @@ enum APIKeys: String {
     case building
     case floor
     case user_id
+    case title
+    case body
+    case timestamp
+    case id
 }
 

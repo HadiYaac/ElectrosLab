@@ -16,6 +16,7 @@ enum FirestoreDocumentPath: String {
     case users = "users"
     case items = "items"
     case orders = "orders"
+    case notifications
 }
 
 final class FireStoreManager {
@@ -56,6 +57,27 @@ final class FireStoreManager {
         }
     }
     
+    static func getNotifications(completion: @escaping (_ notifications: [NotificationItem]?, _ error: Error?) -> ()) {
+        let db = Firestore.firestore()
+        let notificationsRef = db.collection(FirestoreDocumentPath.notifications.rawValue)
+        notificationsRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                completion(nil, error)
+            } else {
+                if let documents = snapshot?.documents {
+                    var items = [NotificationItem]()
+                    for doc in documents {
+                        let item = NotificationItem(from: doc.data(), id: doc.documentID)
+                        items.append(item)
+                    }
+                    completion(items, nil)
+                } else {
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+    
     static func signupUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             completion(error, user)
@@ -88,6 +110,28 @@ final class FireStoreManager {
             } else {
                 //TODO: add user to session manager
                 completion(nil, documentSnapshot?.data())
+            }
+        }
+    }
+    
+    static func fetchUserOrders(completion: @escaping (_ orders: [Order]?, _ error: Error? ) -> ()) {
+        guard let userId = StorageManager.getCurrentUser()?.id else {
+            return
+        }
+        let db = Firestore.firestore()
+        let ref = db.collection(FirestoreDocumentPath.orders.rawValue)
+        let query = ref.whereField(FieldPath(["user", "user_id"]), isEqualTo: userId)
+        query.getDocuments { (snapshot, error) in
+            if error != nil {
+                completion(nil, error)
+            } else {
+                let docs = snapshot?.documents
+                var ordersArray = [Order]()
+                for doc in docs! {
+                    let order = Order(from: doc.data(), id: doc.documentID)
+                    ordersArray.append(order)
+                }
+                completion(ordersArray, nil)
             }
         }
     }

@@ -18,6 +18,17 @@ struct ELUser: Codable {
     var building: String?
     var floor: String?
     
+    init(from dictionary: [String : Any]) {
+        id = dictionary["user_id"] as? String
+        name = dictionary["name"] as? String
+        phoneNumber = dictionary["phone_number"] as? String
+        email = dictionary["email"] as? String
+        city = dictionary["city"] as? String
+        street = dictionary["street"] as? String
+        building = dictionary["building"] as? String
+        floor = dictionary["floor"] as? String
+    }
+    
     init(from dictionary: [String : Any], userId: String) {
         id = userId
         name = dictionary[APIKeys.name.rawValue] as? String
