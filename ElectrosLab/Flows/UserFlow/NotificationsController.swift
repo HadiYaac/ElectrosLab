@@ -14,6 +14,9 @@ class NotificationsController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var notifications: [NotificationItem] = [] {
         didSet {
+            self.notifications = notifications.sorted(by: { (first, second) -> Bool in
+                first.timestamp > second.timestamp
+            })
             self.tableView.reloadData()
         }
     }
