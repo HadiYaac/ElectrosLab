@@ -32,7 +32,7 @@ class ItemCell: UITableViewCell {
         if showQuanitity, let price = item.price {
             var priceString = "\(price)"
             priceString.addDollarSign()
-            priceString = priceString + " (Qty: \(item.quantity))"
+            priceString = priceString + ", (ID: \(item.itemId), Qty: \(item.quantity))"
             itemPriceLabel.text = priceString
         }
         

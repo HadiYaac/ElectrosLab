@@ -16,6 +16,7 @@ struct Item: Codable {
     let price: Float?
     let id: String?
     var quantity: Int = 1
+    let itemId: String
     
     init(from dictionary: [String : Any], id: String) {
         name = dictionary[APIKeys.name.rawValue] as? String
@@ -23,6 +24,7 @@ struct Item: Codable {
         picUrl = dictionary[APIKeys.pic_url.rawValue] as? String
         price = dictionary[APIKeys.price.rawValue] as? Float
         self.id = id
+        self.itemId = dictionary[APIKeys.id.rawValue] as! String
     }
     
     init(from dictionary: [String: Any]) {
@@ -31,12 +33,14 @@ struct Item: Codable {
         picUrl = dictionary["pic_url"] as? String
         price = dictionary["price"] as? Float
         quantity = dictionary["count"] as! Int
+        self.itemId = dictionary["id"] as! String
         self.id = dictionary["item_id"] as? String
     }
     
     func itemDictionary() -> [String : Any] {
         var itemDictionary = [String: Any]()
         itemDictionary[APIKeys.item_id.rawValue] = self.id
+        itemDictionary[APIKeys.id.rawValue] = self.itemId
         itemDictionary[APIKeys.count.rawValue] = self.quantity
         itemDictionary[APIKeys.name.rawValue] = self.name
         itemDictionary[APIKeys.pic_url.rawValue] = self.picUrl

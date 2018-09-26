@@ -18,6 +18,7 @@ class ItemDetailsController: UIViewController {
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemIdLabel: UILabel!
     
     @IBOutlet weak var stackView: UIStackView!
     var isWithList: Bool = false
@@ -78,6 +79,7 @@ class ItemDetailsController: UIViewController {
         } else {
             itemImageView.image = #imageLiteral(resourceName: "Raspberry-Pi-2-Bare-FL.jpg")
         }
+        itemIdLabel.text = "ID: " + item.itemId
     }
     
     func setupButtons() {

@@ -81,7 +81,7 @@ extension MyOrdersController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let orderNumber = "\(section + 1)"
+        let orderNumber = "\(orders.count - section)"
         return "Order #\(orderNumber)"
     }
 }
