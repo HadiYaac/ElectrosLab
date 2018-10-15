@@ -32,9 +32,4 @@ final class CoordinatorFactoryImp: CoordinatorFactory {
         let coordinator = TabbarCoordinator(tabbarView: controller, coordinatorFactory: CoordinatorFactoryImp())
         return (coordinator, controller)
     }
-    
-    
-    
-    
-    
 }

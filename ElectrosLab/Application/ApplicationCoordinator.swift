@@ -11,11 +11,16 @@ import Foundation
 fileprivate enum LaunchInstructor {
     case home, auth
     static func configure(isLoggedIn: Bool = false) -> LaunchInstructor {
-        if isLoggedIn {
-            return .home
-        } else {
-            return .auth
-        }
+//        var loggedIn = isLoggedIn
+//        if StorageManager.getCurrentUser() != nil {
+//            loggedIn = true
+//        }
+//        if loggedIn {
+//            return .home
+//        } else {
+//            return .auth
+//        }
+        return .home
     }
 }
 
@@ -33,6 +38,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     override func start() {
+        NotificationCenter.default.addObserver(self, selector: #selector(runAuthFlow), name: NSNotification.Name(rawValue: "logout"), object: nil)
         switch instructor {
         case .auth:
             runAuthFlow()
@@ -41,7 +47,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
     }
     
-    private func runAuthFlow() {
+    @objc private func runAuthFlow() {
         let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
         coordinator.finishFlow = { [weak self] in
             printD("AuthFlow Finished")

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DPX-Rb-vh8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -55,6 +55,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbv-Rj-itH">
                                         <rect key="frame" x="0.0" y="0.0" width="166.5" height="42"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sign up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -70,6 +71,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4J-5N-0KZ">
                                         <rect key="frame" x="176.5" y="0.0" width="166.5" height="42"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Guest">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -87,17 +89,27 @@
                                     <constraint firstAttribute="height" constant="42" id="mIV-0t-47g"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nct-Ot-6l4">
+                                <rect key="frame" x="87" y="277" width="201" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="forgotPasswordAction:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="wiO-m9-NdC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="I1Q-am-b7F" secondAttribute="trailing" constant="87" id="2Kf-Ku-d1b"/>
                             <constraint firstItem="79u-sh-p2k" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3TY-IF-WUO"/>
                             <constraint firstItem="Qqv-X2-xLD" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3kr-gG-2v0"/>
+                            <constraint firstItem="nct-Ot-6l4" firstAttribute="leading" secondItem="I1Q-am-b7F" secondAttribute="leading" id="9sU-Q2-959"/>
                             <constraint firstItem="I1Q-am-b7F" firstAttribute="top" secondItem="79u-sh-p2k" secondAttribute="bottom" constant="77" id="D4W-M3-m4r"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="bottom" secondItem="bVK-MF-T1T" secondAttribute="bottom" constant="20" id="DFd-Se-SqE"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="79u-sh-p2k" secondAttribute="trailing" constant="20" id="JKn-66-5MB"/>
                             <constraint firstItem="Qqv-X2-xLD" firstAttribute="top" secondItem="VmW-EQ-XVj" secondAttribute="top" constant="30" id="L3X-Nh-e0Z"/>
                             <constraint firstItem="79u-sh-p2k" firstAttribute="top" secondItem="Qqv-X2-xLD" secondAttribute="bottom" constant="30" id="fUt-RF-RoE"/>
+                            <constraint firstItem="nct-Ot-6l4" firstAttribute="trailing" secondItem="I1Q-am-b7F" secondAttribute="trailing" id="hmf-pd-P5N"/>
+                            <constraint firstItem="nct-Ot-6l4" firstAttribute="top" secondItem="I1Q-am-b7F" secondAttribute="bottom" constant="8" id="iX1-Et-Uog"/>
                             <constraint firstItem="bVK-MF-T1T" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="16" id="mZf-XV-jKQ"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="Qqv-X2-xLD" secondAttribute="trailing" constant="20" id="oMj-Jm-roe"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="bVK-MF-T1T" secondAttribute="trailing" constant="16" id="yF4-b0-lCR"/>
@@ -106,8 +118,12 @@
                         <viewLayoutGuide key="safeArea" id="VmW-EQ-XVj"/>
                     </view>
                     <connections>
+                        <outlet property="forgotPasswordButton" destination="nct-Ot-6l4" id="z1r-nW-ngn"/>
+                        <outlet property="guestButton" destination="a4J-5N-0KZ" id="qIX-Ls-02G"/>
+                        <outlet property="loginButton" destination="I1Q-am-b7F" id="4YI-wG-TO7"/>
                         <outlet property="passwordTxtfield" destination="79u-sh-p2k" id="EMZ-za-i3g"/>
                         <outlet property="phoneNumberTxtfield" destination="Qqv-X2-xLD" id="yH3-ap-HQj"/>
+                        <outlet property="signUpButton" destination="Tbv-Rj-itH" id="z6g-n6-Jfc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upY-a3-ilc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,6 +201,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3CM-dH-wle"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -193,6 +210,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signupAction:" destination="clq-u9-Pub" eventType="touchUpInside" id="bFG-x7-TmL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -239,6 +259,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SHb-73-RTa"/>
                     </view>
+                    <connections>
+                        <outlet property="buildingTextField" destination="vsw-7z-9za" id="Brx-fd-CU7"/>
+                        <outlet property="cityTextfield" destination="u7S-Z5-cor" id="wVD-WE-f4N"/>
+                        <outlet property="confirmPasswordTextField" destination="yUb-rl-m4u" id="Aau-16-FhK"/>
+                        <outlet property="emailAddressTextField" destination="PJF-qf-MPU" id="flm-tB-FrG"/>
+                        <outlet property="floorTextField" destination="7eD-wq-1uM" id="7UQ-QS-OuI"/>
+                        <outlet property="fullNameTextField" destination="7rU-CN-gfa" id="1HA-Cy-xOb"/>
+                        <outlet property="passwordTextField" destination="NC6-EN-z5f" id="v6p-Ic-3yZ"/>
+                        <outlet property="phoneNumberTextField" destination="oEd-RW-TTs" id="oyk-x9-ztK"/>
+                        <outlet property="signupButton" destination="vn0-lP-xF4" id="1tc-Fr-b4c"/>
+                        <outlet property="streetTextField" destination="AHm-jj-Sh9" id="ZQJ-RS-fYq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-Q7-mZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

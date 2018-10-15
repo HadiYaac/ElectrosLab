@@ -11,5 +11,4 @@ import UIKit
 protocol CoordinatorFactory {
     func makeAuthCoordinator(router: Router) -> Coordinator & AuthCoordinatorOutput
     func makeTabbarCoordinator() -> (configurator: Coordinator, toPresent: Presentable?)
-
 }

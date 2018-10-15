@@ -7,18 +7,59 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol TabbarView: BaseView {
-    
+    var didPressBasket: ((UINavigationController) -> Void)? { get set }
 }
 
 class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarView {
+    var didPressBasket: ((UINavigationController) -> Void)?
+    var emptyWishListBarButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
+    var basketBarButton: UIBarButtonItem?
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabbarItems()
         setupNavigationItem()
         title = "ElectroSLab"
+        self.delegate = self
+        emptyWishListBarButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(emptyWishList))
+
+        ELUserDefaultsManager.subject.subscribe(onNext: { (count) in
+            printD("updated count: \(count)")
+            if count > 0 {
+                self.basketBarButton?.addBadge(number: count)
+            } else {
+                self.basketBarButton?.removeBadge()
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let count = ELUserDefaultsManager.getBasketArray()?.count {
+            printD("initial count: \(count)")
+            if count > 0 {
+                basketBarButton?.addBadge(number: count)
+            } else {
+                self.basketBarButton?.removeBadge()
+            }
+        }
+    }
+    
+    @objc func emptyWishList() {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete all items from your wishlist?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Clear Wishlist", style: .destructive) { (action) in
+            ELUserDefaultsManager.clearWishlist()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadWishlist"), object: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func setupNavigationItem() {
@@ -30,8 +71,19 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
-        let basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: nil)
+        basketBarButton = UIBarButtonItem(title: "Basket", style: .plain, target: self, action: #selector(basketPressed))
+        basketBarButton?.image = #imageLiteral(resourceName: "basket")
+        basketBarButton?.title = nil
+        
         self.navigationItem.rightBarButtonItem = basketBarButton
+    }
+    
+    @objc func basketPressed() {
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+        } else {
+            self.didPressBasket?(navigationController!)
+        }
     }
     
     func setupTabbarItems() {
@@ -41,10 +93,30 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
         let settings = tabBar.items![3]
         
         categories.title = "Categories"
-        news.title = "News"
+        categories.image = #imageLiteral(resourceName: "list")
+        news.title = "User"
+        news.image = #imageLiteral(resourceName: "news")
         wishList.title = "Wishlist"
-        settings.title = "Settings"
+        wishList.image = #imageLiteral(resourceName: "star")
+        settings.title = "More"
+        settings.image = #imageLiteral(resourceName: "settingsGear")
+        tabBar.tintColor = UIColor.electrosLabBlue()
     }
 
 
+}
+
+extension TabbarController {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController.isKind(of: WishlistController.self) {
+            if (navigationItem.rightBarButtonItems?.count)! > 1 {
+                navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
+            navigationItem.rightBarButtonItems?.append(emptyWishListBarButton)
+        } else {
+            if (navigationItem.rightBarButtonItems?.count)! > 1 {
+                navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
+        }
+    }
 }

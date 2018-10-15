@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import SVProgressHUD
 
 protocol NewsView: BaseView {
     
@@ -15,11 +17,34 @@ protocol NewsView: BaseView {
 class NewsController: UIViewController, NewsView {
    
     @IBOutlet weak var tableView: UITableView!
+    var tableValues = [NewsItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-       // setupNavigationBar()
+        fetchNews()
+    }
+    
+    func fetchNews() {
+        SVProgressHUD.show()
+        let db = Firestore.firestore()
+        var newsItems = [NewsItem]()
+        db.collection(FirestoreDocumentPath.news.rawValue).getDocuments { (querySnapshot, error) in
+            SVProgressHUD.dismiss()
+            if let error = error {
+                UIAlertController.showAlert(with: "", message: error.localizedDescription)
+            } else {
+                if let documents = querySnapshot?.documents {
+                    documents.forEach({ (doc) in
+                        printD(doc.data())
+                        let newsItem = NewsItem(from: doc.data())
+                        newsItems.append(newsItem)
+                    })
+                    self.tableValues = newsItems
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     func setupTableView() {
@@ -29,6 +54,7 @@ class NewsController: UIViewController, NewsView {
         tableView.register(NewsCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = UIColor.electrosLabBlue()
     }
     
     func setupNavigationBar() {
@@ -42,12 +68,13 @@ class NewsController: UIViewController, NewsView {
 
 extension NewsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tableValues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as NewsCell
-        cell.setupCell()
+        let item = tableValues[indexPath.row]
+        cell.setupCell(with: item)
         return cell
     }
     

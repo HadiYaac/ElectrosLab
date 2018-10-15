@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SignupView: BaseView {
-    
+    var userDidSignup: (() -> Void)? { get set }
 }

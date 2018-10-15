@@ -7,10 +7,18 @@ target 'ElectrosLab' do
 
 	
  # Pods for ElectrosLab
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
-    pod 'Firebase/Core'
-pod 'Firebase/Firestore'
-pod 'SVProgressHUD'
+    	pod 'RxSwift',    '~> 4.0'
+   	pod 'RxCocoa',    '~> 4.0'
+  	pod 'Firebase/Core'
+	pod 'Firebase/Auth'
+	pod 'Kingfisher', '~> 4.0'
+	pod 'Firebase/Firestore'
+	pod 'SVProgressHUD'
+    	pod 'IQKeyboardManagerSwift'
+  	pod 'GoogleMaps'
+	pod 'Firebase/Messaging'
+	pod 'SKPhotoBrowser'
+	pod 'ImageSlideshow', '~> 1.6'
+
 
 end

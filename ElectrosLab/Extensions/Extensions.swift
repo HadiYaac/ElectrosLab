@@ -412,7 +412,7 @@ extension UITextField {
         }
     }
     
-    public func setupBottomBorder() {
+    public func setupBottomBorder(color: UIColor = UIColor.lightGray) {
         subviews.forEach { (subview) in
             if subview.tag == 347 {
                 subview.removeFromSuperview()
@@ -438,6 +438,11 @@ extension UIAlertController {
     
     static func showAlert(with title: String, message: String, defaultActionButtonTitle: String = "Ok") {
         let alert = UIAlertController.init(title: title, message: message, defaultActionButtonTitle: defaultActionButtonTitle, tintColor: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    static func showErrorAlert() {
+        let alert = UIAlertController.init(title: "", message: "Something went wrong")
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
@@ -498,9 +503,8 @@ extension WKWebsiteDataStore {
 
 extension SVProgressHUD {
     class func showLoader() {
-        UIApplication.shared.beginIgnoringInteractionEvents()
         self.setBackgroundColor(UIColor.init(red: 0.97, green: 0.97, blue: 0.97, alpha: 1))
-        self.setForegroundColor(UIColor.blue)
+        self.setForegroundColor(UIColor.electrosLabBlue())
         self.setDefaultMaskType(.clear)
         self.setRingRadius(4)
         self.setContainerView(UIApplication.shared.keyWindow?.rootViewController?.view)
@@ -508,9 +512,16 @@ extension SVProgressHUD {
     }
     
     class func dismissLoader() {
-        UIApplication.shared.endIgnoringInteractionEvents()
         self.dismiss()
     }
+    
+    class func showSuccessStatus(status: String) {
+        self.setBackgroundColor(UIColor.electrosLabBlue())
+        self.setForegroundColor(UIColor.white)
+        self.setMinimumDismissTimeInterval(1)
+        self.showSuccess(withStatus: status)
+    }
+    
 }
 
 extension Bundle {

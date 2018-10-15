@@ -21,27 +21,26 @@ final class TabbarCoordinator: BaseCoordinator {
     }
     
     override func start() {
-//        tabbarView.onViewDidLoad = runMeasureFlow()
-//        tabbarView.onMeasureFlowSelect = runMeasureFlow()
+        tabbarView.didPressBasket = startBasketFlow()
     }
     
     override func startWithController(_ controller: SelectedController?) {
-//        tabbarView.onViewDidLoad = runMeasureFlow(controller: controller)
-//        tabbarView.onMeasureFlowSelect = runMeasureFlow(controller: controller)
+
+    }
+    
+    private func startBasketFlow() -> ((UINavigationController) -> Void) {
+        return { navController in
+            let basketOutput = BasketController.controllerInStoryboard(.basket)
+            navController.pushViewController(basketOutput, animated: true)
+            
+        }
     }
     
     private func runMeasureFlow(controller: SelectedController? = nil) -> ((UINavigationController) -> Void) {
         
         return { navController in
             if navController.viewControllers.isEmpty == true {
-//                let measureCoordinator = self.coordinatorFactory.makeMeasureCoordinator(navController: navController)
-//                if let controller = controller {
-//                    measureCoordinator.startWithController(controller)
-//                } else {
-//                    measureCoordinator.start()
-//                    
-//                }
-//                self.addDependency(measureCoordinator)
+
             }
         }
     }
