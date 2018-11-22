@@ -175,7 +175,6 @@ extension CategoryDetailsController: UISearchBarDelegate {
             }
         }
     }
-    
 }
 
 

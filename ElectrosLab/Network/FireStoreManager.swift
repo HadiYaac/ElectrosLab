@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 enum FirestoreDocumentPath: String {
     case categories = "categories"
@@ -35,52 +36,17 @@ final class FireStoreManager {
         }
     }
     
-    static func getItemsForCategory(categoryId: String, completion: @escaping (_ error: Error?, _ result: [Item]?) -> ()) {
-        let db = Firestore.firestore()
-        let itemsRef = db.collection(FirestoreDocumentPath.items.rawValue)
-        let query = itemsRef.whereField("category_id", isEqualTo: categoryId)
-        query.getDocuments { (snapshot, error) in
-            if error != nil {
-                completion(error, nil)
-            } else {
-                if let documents = snapshot?.documents {
-                    var itemsArray = [Item]()
-                    for doc in documents {
-                        let item = Item(from: doc.data(), id: doc.documentID)
-                        itemsArray.append(item)
-                    }
-                    completion(nil, itemsArray)
-                } else {
-                    completion(error, nil)
-                }
-            }
-        }
-    }
-    
-    static func getNotifications(completion: @escaping (_ notifications: [NotificationItem]?, _ error: Error?) -> ()) {
-        let db = Firestore.firestore()
-        let notificationsRef = db.collection(FirestoreDocumentPath.notifications.rawValue)
-        notificationsRef.getDocuments { (snapshot, error) in
-            if error != nil {
-                completion(nil, error)
-            } else {
-                if let documents = snapshot?.documents {
-                    var items = [NotificationItem]()
-                    for doc in documents {
-                        let item = NotificationItem(from: doc.data(), id: doc.documentID)
-                        items.append(item)
-                    }
-                    completion(items, nil)
-                } else {
-                    completion(nil, error)
-                }
-            }
-        }
-    }
+    // MARK: User Information
     
     static func signupUser(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            completion(error, user)
+            completion(error, user?.user)
+        }
+    }
+    
+    static func loginAction(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> ()) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            completion(error, user?.user)
         }
     }
     
@@ -95,11 +61,7 @@ final class FireStoreManager {
         }
     }
     
-    static func loginAction(email: String, password: String, completion: @escaping (_ error: Error?, _ user: User?) -> ()) {
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            completion(error, user)
-        }
-    }
+
     
     static func getUserFromFireStoreDB(user: User, completion: @escaping (_ error: Error?, _ userData: [String : Any]?) -> ()) {
         let db = Firestore.firestore()
@@ -135,7 +97,30 @@ final class FireStoreManager {
             }
         }
     }
-    
+
+    static func getNotifications(completion: @escaping (_ notifications: [NotificationItem]?, _ error: Error?) -> ()) {
+        let db = Firestore.firestore()
+        let notificationsRef = db.collection(FirestoreDocumentPath.notifications.rawValue)
+        notificationsRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                completion(nil, error)
+            } else {
+                if let documents = snapshot?.documents {
+                    var items = [NotificationItem]()
+                    for doc in documents {
+                        let item = NotificationItem(from: doc.data(), id: doc.documentID)
+                        items.append(item)
+                    }
+                    completion(items, nil)
+                } else {
+                    completion(nil, error)
+                }
+            }
+        }
+    }
+
+    // MARK: Categories & Products
+
     static func uploadNewOrder(orderItems: [Item], completion: @escaping (_ error: Error?, _ success: Bool) -> ()) {
         let db = Firestore.firestore()
         var orderDictionary = [String : Any]()
@@ -171,6 +156,29 @@ final class FireStoreManager {
         totalPriceString.addDollarSign()
         return totalPriceString
     }
+    
+    static func getItemsForCategory(categoryId: String, completion: @escaping (_ error: Error?, _ result: [Item]?) -> ()) {
+        let db = Firestore.firestore()
+        let itemsRef = db.collection(FirestoreDocumentPath.items.rawValue)
+        let query = itemsRef.whereField("category_id", isEqualTo: categoryId)
+        query.getDocuments { (snapshot, error) in
+            if error != nil {
+                completion(error, nil)
+            } else {
+                if let documents = snapshot?.documents {
+                    var itemsArray = [Item]()
+                    for doc in documents {
+                        let item = Item(from: doc.data(), id: doc.documentID)
+                        itemsArray.append(item)
+                    }
+                    completion(nil, itemsArray)
+                } else {
+                    completion(error, nil)
+                }
+            }
+        }
+    }
+    
 }
 
 

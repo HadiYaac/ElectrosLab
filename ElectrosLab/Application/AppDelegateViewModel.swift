@@ -31,8 +31,8 @@ final class AppDelegateViewModel: NSObject {
         GMSServices.provideAPIKey("AIzaSyAc1M8vz0ZjPFOVjzy--QDiG1gi9kiVE4g")
         applicationCoordinator?.start()
         UIApplication.shared.statusBarStyle = .lightContent
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         UINavigationBar.appearance().barTintColor = UIColor.electrosLabBlue()
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor = UIColor.white
