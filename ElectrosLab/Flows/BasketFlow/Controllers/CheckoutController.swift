@@ -43,6 +43,12 @@ class CheckoutController: UIViewController {
         return totalPrice
     }
     
+    func showConfirmationPopup(){
+        UIAlertController.showAlert(with: "Confirmation", message: "Total price: $\(getTotalPrice()) + $5 Delivery Cost. \nAre you sure you want to proceed?", okayButtonTitle: "Yes", okayButtonCallback: {
+            self.makeOrderRequest()
+        }, cancelButtonTitle: "No, thanks", cancelButtonCallBack: nil)
+    }
+    
     func makeOrderRequest() {
         printD("made order")
         SVProgressHUD.showLoader()
@@ -53,7 +59,7 @@ class CheckoutController: UIViewController {
             } else {
                 ELUserDefaultsManager.clearBasket()
                 self?.navigationController?.popToRootViewController(animated: true)
-                UIAlertController.showAlert(with: "Success", message: "Your order has been requested. Thank you")
+                UIAlertController.showAlert(with: "Thank you!", message: "Your order has been requested. It may take up to 3 working days to be delivered. \nGood luck :)")
                 self?.sendNotificationToAdmin()
             }
         }
@@ -105,7 +111,7 @@ extension CheckoutController: UITableViewDataSource, UITableViewDelegate {
         case tableValues.count + 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as MakeOrderCell
             cell.didPressOrderButton = { [weak self] in
-                self?.makeOrderRequest()
+                self?.showConfirmationPopup()
             }
             return cell
             

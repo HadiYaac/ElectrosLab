@@ -75,10 +75,10 @@ class SignupController: UIViewController, SignupView {
     
     func setupTextFields() {
         setupTextFieldWithBorder(textField: fullNameTextField, placeholder: "Full Name")
-        setupTextFieldWithBorder(textField: phoneNumberTextField, placeholder: "Phone Number (Optional)")
+        setupTextFieldWithBorder(textField: phoneNumberTextField, placeholder: "Phone Number")
         phoneNumberTextField.keyboardType = .phonePad
         
-        setupTextFieldWithBorder(textField: emailAddressTextField, placeholder: "Email Address (this will be used to login to the app)")
+        setupTextFieldWithBorder(textField: emailAddressTextField, placeholder: "Email Address")
         emailAddressTextField.keyboardType = .emailAddress
         
         setupTextFieldWithBorder(textField: passwordTextField, placeholder: "Password")
@@ -138,7 +138,7 @@ class SignupController: UIViewController, SignupView {
     }
     
     func didFillRequiredFields() -> Bool {
-        let filled = fullNameTextField.isFilled() && emailAddressTextField.isFilled() && passwordTextField.isFilled() && confirmPasswordTextField.isFilled() && cityTextfield.isFilled() && streetTextField.isFilled() && buildingTextField.isFilled() && floorTextField.isFilled()
+        let filled = fullNameTextField.isFilled() && phoneNumberTextField.isFilled() && emailAddressTextField.isFilled() && passwordTextField.isFilled() && confirmPasswordTextField.isFilled() && cityTextfield.isFilled() && streetTextField.isFilled() && buildingTextField.isFilled() && floorTextField.isFilled()
         return filled
     }
     
@@ -155,6 +155,8 @@ class SignupController: UIViewController, SignupView {
         var errorMessage = "field is required"
         if !fullNameTextField.isFilled() {
             errorMessage = "Name ".appending(errorMessage)
+        } else if !phoneNumberTextField.isFilled() {
+            errorMessage = "Phone Number ".appending(errorMessage) + "\n(For additional information about your address, we might call you on this number)"
         } else if !emailAddressTextField.isFilled() {
             errorMessage = "Email ".appending(errorMessage)
         } else if !passwordTextField.isFilled() {

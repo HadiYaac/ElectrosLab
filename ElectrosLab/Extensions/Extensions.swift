@@ -441,6 +441,20 @@ extension UIAlertController {
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
+    static func showLoginAlert() {
+        let alert = UIAlertController.init(title: "Sorry!", message: "Please Signup/ Login in order to proceed", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Dismiss", style: .destructive, handler: nil)
+        let loginAction = UIAlertAction(title: "Login", style: .default) { action in
+            StorageManager.clearUserData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "logout"), object: nil)
+        }
+    
+        alert.addAction(okayAction)
+        alert.addAction(loginAction)
+
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
     static func showErrorAlert() {
         let alert = UIAlertController.init(title: "", message: "Something went wrong")
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)

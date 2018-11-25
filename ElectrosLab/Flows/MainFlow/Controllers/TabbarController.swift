@@ -80,7 +80,8 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate, TabbarVi
     
     @objc func basketPressed() {
         if StorageManager.getCurrentUser() == nil {
-            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+            UIAlertController.showLoginAlert()
+            //UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
         } else {
             self.didPressBasket?(navigationController!)
         }

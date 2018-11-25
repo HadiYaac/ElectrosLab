@@ -84,7 +84,8 @@ extension WishlistController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.tableValues[indexPath.row]
         if StorageManager.getCurrentUser() == nil {
-            UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+            UIAlertController.showLoginAlert()
+           // UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
         } else {
             self.showItemDetails(item: item)
         }

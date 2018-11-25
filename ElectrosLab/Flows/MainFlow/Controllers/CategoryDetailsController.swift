@@ -117,7 +117,8 @@ extension CategoryDetailsController: UITableViewDataSource, UITableViewDelegate 
         }
         if StorageManager.getCurrentUser() == nil {
             if !isSearching {
-                UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
+                UIAlertController.showLoginAlert()
+                //UIAlertController.showAlert(with: "", message: "Please login/signup to proceed")
             }
         } else {
             proceedToItemDetails(item: item!)
