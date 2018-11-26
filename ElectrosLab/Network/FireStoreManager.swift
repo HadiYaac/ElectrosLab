@@ -97,6 +97,24 @@ final class FireStoreManager {
             }
         }
     }
+    
+    static func removeOrderFromMyOrders(withOrder order : Order, completion: @escaping ( _ error: Error? ) -> ())  {
+       
+        print("Document with id \(order.orderId!) is about to be removed removed!")
+        
+        let db = Firestore.firestore()
+        
+        db.collection(FirestoreDocumentPath.orders.rawValue).document(order.orderId!).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                completion(err)
+            } else {
+                print("Document with id \(order.orderId!) was successfully removed!")
+                completion(nil)
+            }
+        }
+        
+    }
 
     static func getNotifications(completion: @escaping (_ notifications: [NotificationItem]?, _ error: Error?) -> ()) {
         let db = Firestore.firestore()

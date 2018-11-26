@@ -17,9 +17,12 @@ class MyOrdersController: UIViewController {
             self.orders = self.orders.sorted(by: { (first, second) -> Bool in
                 first.createdAt! > second.createdAt!
             })
-            self.tableView.reloadData()
+             self.tableView.reloadData()
         }
     }
+    
+    var orderNumber : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -51,7 +54,24 @@ class MyOrdersController: UIViewController {
             }
         }
     }
-
+    
+    private func removeOrder(withOrder order : Order){
+        SVProgressHUD.showLoader()
+        FireStoreManager.removeOrderFromMyOrders(withOrder: order) { [weak self] (error) in
+            SVProgressHUD.dismissLoader()
+            if error != nil {
+                UIAlertController.showErrorAlert()
+            } else {
+                self?.getOrders()
+            }
+        }
+    }
+    
+    private func showDeleteAlert(withOrder order : Order){
+        UIAlertController.showAlert(with: "Attention!", message: "This will delete the entire order #\(self.orderNumber!), are you sure you want to do that?", okayButtonTitle: "Yes", okayButtonCallback: {
+            self.removeOrder(withOrder: order)
+        }, cancelButtonTitle: "No", cancelButtonCallBack: nil)
+    }
 }
 
 extension MyOrdersController: UITableViewDelegate, UITableViewDataSource {
@@ -82,6 +102,13 @@ extension MyOrdersController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let orderNumber = "\(orders.count - section)"
+        self.orderNumber = orderNumber
         return "Order #\(orderNumber)"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.showDeleteAlert(withOrder: self.orders[indexPath.section])
+        }
     }
 }
