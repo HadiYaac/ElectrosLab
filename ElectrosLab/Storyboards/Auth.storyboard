@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,26 +19,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-X2-xLD" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
-                                <rect key="frame" x="20" y="50" width="335" height="31"/>
+                                <rect key="frame" x="20" y="320" width="335" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79u-sh-p2k" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
-                                <rect key="frame" x="20" y="111" width="335" height="31"/>
+                                <rect key="frame" x="20" y="380" width="335" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1Q-am-b7F">
-                                <rect key="frame" x="87" y="219" width="201" height="50"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4J-5N-0KZ">
+                                <rect key="frame" x="104.5" y="575" width="166.5" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="DPX-Rb-vh8"/>
+                                    <constraint firstAttribute="width" constant="166.5" id="KC9-if-pt5"/>
+                                    <constraint firstAttribute="height" constant="42" id="QVc-1x-IhG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Welcomed as Guest">
+                                    <color key="titleColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -46,16 +47,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginAction:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="Vik-j7-IzG"/>
+                                    <action selector="guestTapped:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="4mM-GV-Wgx"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-MF-T1T">
-                                <rect key="frame" x="16" y="605" width="343" height="42"/>
+                                <rect key="frame" x="16" y="525" width="343" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbv-Rj-itH">
                                         <rect key="frame" x="0.0" y="0.0" width="166.5" height="42"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="Sign up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -68,11 +69,11 @@
                                             <action selector="signUpTapped:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="he6-JQ-sU8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4J-5N-0KZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1Q-am-b7F">
                                         <rect key="frame" x="176.5" y="0.0" width="166.5" height="42"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Guest">
+                                        <color key="backgroundColor" red="0.1137254902" green="0.78615824384843747" blue="0.77894574331874988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -81,7 +82,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="guestTapped:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="4mM-GV-Wgx"/>
+                                            <action selector="loginAction:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="Vik-j7-IzG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,30 +91,40 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nct-Ot-6l4">
-                                <rect key="frame" x="87" y="277" width="201" height="30"/>
+                                <rect key="frame" x="164.5" y="426" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xcf-nQ-wS4"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="forgotPasswordAction:" destination="3hQ-tV-tgV" eventType="touchUpInside" id="wiO-m9-NdC"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gyI-cu-uN4">
+                                <rect key="frame" x="37.5" y="85" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="TWF-Qg-nPO"/>
+                                    <constraint firstAttribute="width" constant="300" id="bLv-rv-wey"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="I1Q-am-b7F" secondAttribute="trailing" constant="87" id="2Kf-Ku-d1b"/>
+                            <constraint firstItem="nct-Ot-6l4" firstAttribute="top" secondItem="79u-sh-p2k" secondAttribute="bottom" constant="16" id="2aF-3N-9on"/>
                             <constraint firstItem="79u-sh-p2k" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3TY-IF-WUO"/>
                             <constraint firstItem="Qqv-X2-xLD" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="20" id="3kr-gG-2v0"/>
-                            <constraint firstItem="nct-Ot-6l4" firstAttribute="leading" secondItem="I1Q-am-b7F" secondAttribute="leading" id="9sU-Q2-959"/>
-                            <constraint firstItem="I1Q-am-b7F" firstAttribute="top" secondItem="79u-sh-p2k" secondAttribute="bottom" constant="77" id="D4W-M3-m4r"/>
-                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="bottom" secondItem="bVK-MF-T1T" secondAttribute="bottom" constant="20" id="DFd-Se-SqE"/>
+                            <constraint firstItem="nct-Ot-6l4" firstAttribute="centerX" secondItem="8fx-U7-EVb" secondAttribute="centerX" id="4Fy-Wa-4hS"/>
+                            <constraint firstItem="VmW-EQ-XVj" firstAttribute="bottom" secondItem="a4J-5N-0KZ" secondAttribute="bottom" constant="50" id="8vs-yt-HyO"/>
+                            <constraint firstItem="a4J-5N-0KZ" firstAttribute="top" secondItem="bVK-MF-T1T" secondAttribute="bottom" constant="8" id="BCD-Of-st3"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="79u-sh-p2k" secondAttribute="trailing" constant="20" id="JKn-66-5MB"/>
-                            <constraint firstItem="Qqv-X2-xLD" firstAttribute="top" secondItem="VmW-EQ-XVj" secondAttribute="top" constant="30" id="L3X-Nh-e0Z"/>
+                            <constraint firstItem="Qqv-X2-xLD" firstAttribute="top" secondItem="VmW-EQ-XVj" secondAttribute="top" constant="300" id="L3X-Nh-e0Z"/>
+                            <constraint firstItem="gyI-cu-uN4" firstAttribute="centerX" secondItem="8fx-U7-EVb" secondAttribute="centerX" id="UmW-Fr-Sor"/>
+                            <constraint firstItem="a4J-5N-0KZ" firstAttribute="centerX" secondItem="VmW-EQ-XVj" secondAttribute="centerX" id="ZGO-kc-fNz"/>
                             <constraint firstItem="79u-sh-p2k" firstAttribute="top" secondItem="Qqv-X2-xLD" secondAttribute="bottom" constant="30" id="fUt-RF-RoE"/>
-                            <constraint firstItem="nct-Ot-6l4" firstAttribute="trailing" secondItem="I1Q-am-b7F" secondAttribute="trailing" id="hmf-pd-P5N"/>
-                            <constraint firstItem="nct-Ot-6l4" firstAttribute="top" secondItem="I1Q-am-b7F" secondAttribute="bottom" constant="8" id="iX1-Et-Uog"/>
+                            <constraint firstItem="gyI-cu-uN4" firstAttribute="top" secondItem="VmW-EQ-XVj" secondAttribute="top" constant="65" id="it3-1U-tTc"/>
                             <constraint firstItem="bVK-MF-T1T" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="16" id="mZf-XV-jKQ"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="Qqv-X2-xLD" secondAttribute="trailing" constant="20" id="oMj-Jm-roe"/>
                             <constraint firstItem="VmW-EQ-XVj" firstAttribute="trailing" secondItem="bVK-MF-T1T" secondAttribute="trailing" constant="16" id="yF4-b0-lCR"/>
-                            <constraint firstItem="I1Q-am-b7F" firstAttribute="leading" secondItem="VmW-EQ-XVj" secondAttribute="leading" constant="87" id="zE0-bI-6A9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VmW-EQ-XVj"/>
                     </view>
@@ -144,55 +155,55 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC6-EN-z5f" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="200" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="street" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHm-jj-Sh9" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="380" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="fullname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7rU-CN-gfa" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oEd-RW-TTs" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="80" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-qf-MPU" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="140" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yUb-rl-m4u" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="260" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u7S-Z5-cor" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="320" width="335" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="building" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vsw-7z-9za" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="440" width="282" height="30"/>
+                                        <rect key="frame" x="20" y="440" width="268" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="floor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-wq-1uM" customClass="HJFloatingLabelTextField" customModule="ElectrosLab" customModuleProvider="target">
-                                        <rect key="frame" x="315" y="440" width="40" height="30"/>
+                                        <rect key="frame" x="301" y="440" width="54" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-lP-xF4">
@@ -201,7 +212,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3CM-dH-wle"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -277,4 +288,7 @@
             <point key="canvasLocation" x="732" y="149.77511244377811"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="1024" height="1024"/>
+    </resources>
 </document>

@@ -196,8 +196,12 @@ extension UIColor {
         return .color(withHexValue: value.rawValue, alpha:alpha)
     }
     
-    static func electrosLabBlue() -> UIColor {
+    static func electrosLabDarkGreen() -> UIColor {
         return UIColor.init(red: 37.0/255.0, green: 57.0/255.0, blue: 65.0/255.0, alpha: 1.0)
+    }
+    
+    static func electrosLabBlue() -> UIColor {
+        return UIColor.init(red: 31.0/255.0, green: 139.0/255.0, blue: 164.0/255.0, alpha: 1.0)
     }
 }
 

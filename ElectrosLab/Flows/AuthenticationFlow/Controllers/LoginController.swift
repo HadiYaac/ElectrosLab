@@ -26,14 +26,14 @@ class LoginController: UIViewController, LoginView {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-        view.backgroundColor = UIColor.electrosLabBlue()
+        view.backgroundColor = UIColor.white
         #if DEBUG
             phoneNumberTxtfield.text = "hu@me.com"
             passwordTxtfield.text = "123456"
         #endif
         
-        forgotPasswordButton.setTitleColor(UIColor.white, for: .normal)
-        forgotPasswordButton.setTitle("Forgot Password", for: .normal)
+        forgotPasswordButton.setTitleColor(UIColor.electrosLabDarkGreen(), for: .normal)
+        forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
     }
     
     @IBAction func forgotPasswordAction(_ sender: UIButton) {
@@ -80,20 +80,20 @@ class LoginController: UIViewController, LoginView {
         passwordTxtfield.placeholder = "Password"
         passwordTxtfield.isSecureTextEntry = true
         phoneNumberTxtfield.keyboardType = .emailAddress
-        phoneNumberTxtfield.textColor = UIColor.white
-        passwordTxtfield.textColor = UIColor.white
-        phoneNumberTxtfield.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        passwordTxtfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        phoneNumberTxtfield.textColor = UIColor.electrosLabDarkGreen()
+        passwordTxtfield.textColor = UIColor.electrosLabDarkGreen()
+        phoneNumberTxtfield.attributedPlaceholder = NSAttributedString(string: "Email Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        passwordTxtfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
     }
     
     func setupButtons() {
-        loginButton.backgroundColor = UIColor.white
-        signUpButton.backgroundColor = UIColor.white
-        guestButton.backgroundColor = UIColor.white
+        loginButton.backgroundColor = UIColor.electrosLabDarkGreen()
+        signUpButton.backgroundColor = UIColor.electrosLabDarkGreen()
+        guestButton.backgroundColor = UIColor.clear
         
-        loginButton.setTitleColor(UIColor.electrosLabBlue(), for: .normal)
-        signUpButton.setTitleColor(UIColor.electrosLabBlue(), for: .normal)
-        guestButton.setTitleColor(UIColor.electrosLabBlue(), for: .normal)
+        loginButton.setTitleColor(UIColor.white, for: .normal)
+        signUpButton.setTitleColor(UIColor.white, for: .normal)
+        guestButton.setTitleColor(UIColor.electrosLabDarkGreen(), for: .normal)
     }
 
     @IBAction func loginAction(_ sender: Any) {
