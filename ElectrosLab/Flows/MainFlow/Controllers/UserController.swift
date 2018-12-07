@@ -30,19 +30,32 @@ class UserController: UIViewController {
     }
     
     func showNotifications() {
-        let noticationsController = NotificationsController.controllerInStoryboard(.user)
-        navigationController?.pushViewController(noticationsController, animated: true)
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showLoginAlert()
+        } else {
+            let noticationsController = NotificationsController.controllerInStoryboard(.user)
+            navigationController?.pushViewController(noticationsController, animated: true)
+        }
     }
     
     func showOrders() {
-        let ordersController = MyOrdersController.controllerInStoryboard(.user)
-        navigationController?.pushViewController(ordersController, animated: true)
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showLoginAlert()
+        } else {
+            let ordersController = MyOrdersController.controllerInStoryboard(.user)
+            navigationController?.pushViewController(ordersController, animated: true)
+        }
+
     }
     
     func showEditProfileView() {
-        let editProfileView = SignupController.controllerInStoryboard(.auth)
-        editProfileView.isEditingProfile = true
-        navigationController?.pushViewController(editProfileView, animated: true)
+        if StorageManager.getCurrentUser() == nil {
+            UIAlertController.showLoginAlert()
+        } else {
+            let editProfileView = SignupController.controllerInStoryboard(.auth)
+            editProfileView.isEditingProfile = true
+            navigationController?.pushViewController(editProfileView, animated: true)
+        }
     }
 }
 

@@ -38,11 +38,10 @@ class CategoryDetailsController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
+
     func addSearchBar() {
         searchController.searchBar.delegate = self
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.electrosLabBlue()
+        searchController.searchBar.tintColor = .white
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
@@ -55,14 +54,26 @@ class CategoryDetailsController: UIViewController {
             self.searchController.hidesNavigationBarDuringPresentation = false
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search products", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .lightGray
+            
+            if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+                textfield.textColor = UIColor.blue
+                if let backgroundview = textfield.subviews.first {
+                    
+                    // Background color
+                    backgroundview.backgroundColor = .lightGray
+                    
+                    // Rounded corner
+                    backgroundview.layer.cornerRadius = 10;
+                    backgroundview.clipsToBounds = true;
+                }
+            }
+            
         } else {
             self.searchController.dimsBackgroundDuringPresentation = false
             self.searchController.hidesNavigationBarDuringPresentation = false
             navigationItem.titleView = searchController.searchBar
         }
-        
-
-        
     }
     
     func fetchItems(categoryId: String) {
